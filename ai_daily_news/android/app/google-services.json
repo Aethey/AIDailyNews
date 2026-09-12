@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "218656007172",
+    "project_id": "aidaily-2b873",
+    "storage_bucket": "aidaily-2b873.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218656007172:android:f200d75d3db47f61fd0151",
+        "android_client_info": {
+          "package_name": "com.rya.ai_daily_news"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMvF_C4FJwBE4sFEQbpg_SK1roIQQN3EQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
