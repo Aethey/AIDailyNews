@@ -1,0 +1,1590 @@
+<!doctype html>
+<html lang="ja" data-paper="morning" data-od-id="html-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI 朝刊 · Android</title>
+  <style>
+    :root {
+      --bg:      oklch(0.9520 0.0165 91.55);
+      --surface: oklch(0.9680 0.0120 91.55);
+      --fg:      oklch(0.2424 0.0056 106.81);
+      --muted:   oklch(0.4320 0.0140 91.55);
+      --border:  oklch(0.8200 0.0180 91.55);
+      --accent:  oklch(0.6313 0.1996 33.05);
+      --accent-soft: color-mix(in oklch, var(--accent) 14%, transparent);
+      --fg-soft:     color-mix(in oklch, var(--fg) 6%, transparent);
+      --font-display: "Iowan Old Style", "Hiragino Mincho ProN", "YuMincho", "Noto Serif JP", "Charter", Georgia, serif;
+      --font-body:    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-mono:    "SF Mono", "IBM Plex Mono", ui-monospace, Menlo, monospace;
+      --fs-h1: 34px;
+      --fs-h2: 26px;
+      --fs-h3: 17px;
+      --fs-lead: 15px;
+      --fs-body: 14px;
+      --fs-meta: 10px;
+      --gap-xs: 8px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 32px;
+      --radius: 2px;
+      --radius-lg: 4px;
+    }
+    html[data-paper="night"] {
+      --bg:      oklch(0.2050 0.0220 264.00);
+      --surface: oklch(0.2480 0.0200 264.00);
+      --fg:      oklch(0.9000 0.0120 91.00);
+      --muted:   oklch(0.7400 0.0160 91.00);
+      --border:  oklch(0.3200 0.0180 264.00);
+      --accent:  oklch(0.7800 0.1180 68.00);
+      --accent-soft: color-mix(in oklch, var(--accent) 18%, transparent);
+      --fg-soft:     color-mix(in oklch, var(--fg) 8%, transparent);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 28%,
+          color-mix(in oklch, var(--surface) 86%, var(--accent) 14%),
+          var(--bg) 62%);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: 1.5;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    html[data-paper="night"] body {
+      background:
+        radial-gradient(ellipse at 50% 24%,
+          color-mix(in oklch, var(--surface) 80%, var(--accent) 20%),
+          var(--bg) 70%);
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; color: inherit; background: none; border: 0; padding: 0; }
+    p { text-wrap: pretty; margin: 0; }
+    h1, h2, h3, h4 { text-wrap: balance; margin: 0; font-family: var(--font-display); font-weight: 600; }
+    h1 { font-size: var(--fs-h1); line-height: 1.08; letter-spacing: -0.03em; }
+    h2 { font-size: var(--fs-h2); line-height: 1.12; letter-spacing: -0.02em; }
+    h3 { font-size: var(--fs-h3); line-height: 1.28; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0;
+    }
+    .meta { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .num  { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    .lead { font-size: var(--fs-lead); line-height: 1.55; color: var(--fg); max-width: 36ch; }
+    .rule { border: 0; border-top: 1px solid var(--border); margin: 0; }
+    .rule-strong { border: 0; border-top: 1px solid var(--fg); margin: 0; }
+
+    .stage {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px 16px;
+    }
+    .device {
+      width: 412px;
+      height: 892px;
+      background: color-mix(in oklch, var(--fg) 90%, black);
+      border-radius: 36px;
+      padding: 12px 10px;
+      box-shadow:
+        0 30px 60px color-mix(in oklch, var(--fg) 18%, transparent),
+        inset 0 0 0 1px color-mix(in oklch, var(--fg) 70%, black);
+      position: relative;
+    }
+    .screen {
+      height: 100%;
+      background: var(--bg);
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+      z-index: 8;
+    }
+    html[data-paper="night"] .screen::before { mix-blend-mode: soft-light; opacity: 0.08; }
+
+    .island { display: none; }
+    .statusbar {
+      height: 36px;
+      padding: 10px 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 11;
+    }
+    .sb-icons { display: flex; gap: 6px; align-items: center; }
+    .sb-ic { width: 16px; height: 10px; border: 1.4px solid currentColor; border-radius: 2px; position: relative; }
+    .sb-ic::after { content: ""; position: absolute; right: -3px; top: 2px; width: 2px; height: 4px; background: currentColor; border-radius: 1px; }
+    .sb-ic i { position: absolute; inset: 1px 5px 1px 1px; background: currentColor; }
+
+    .app { flex: 1; display: flex; flex-direction: column; min-height: 0; position: relative; z-index: 1; }
+    .mast {
+      height: 44px;
+      min-height: 44px;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .mast-tools { display: flex; gap: 4px; }
+    .tool {
+      min-width: 48px;
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+    .tool:hover { background: color-mix(in oklch, var(--fg) 7%, transparent); }
+    .tool:focus-visible, .tab:focus-visible, .cover-open:focus-visible,
+    .story-link:focus-visible, .filter:focus-visible, .book:focus-visible,
+    .page-hit:focus-visible, .mark-row:focus-visible, .paper-toggle:focus-visible,
+    .cover-plate:focus-visible, .float:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .views { flex: 1; min-height: 0; position: relative; }
+    .view {
+      position: absolute;
+      inset: 0;
+      overflow: auto;
+      padding: 0 22px 12px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(10px);
+      transition: opacity 320ms ease, transform 360ms cubic-bezier(0.22, 1, 0.36, 1), visibility 320ms;
+    }
+    .view.is-on { opacity: 1; visibility: visible; transform: none; }
+    .view[data-view="shelf"].is-drawing { overflow: visible; }
+
+    .tabbar {
+      height: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+      padding: 0 8px;
+    }
+    .tab {
+      min-height: 48px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+    .tab:hover { background: color-mix(in oklch, var(--fg) 6%, transparent); }
+    .tab[aria-current="page"] { box-shadow: inset 0 1px 0 var(--fg); }
+    .app[data-view="reader"] .tabbar { display: none; }
+    .reader-dock {
+      display: none;
+      position: absolute;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      z-index: 16;
+      width: min(300px, calc(100% - 32px));
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+    .app[data-view="reader"] .reader-dock { display: grid; }
+    .reader-dock .float {
+      min-height: 48px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 20px color-mix(in oklch, var(--fg) 10%, transparent);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+    .reader-dock .float:hover {
+      background: color-mix(in oklch, var(--fg) 7%, var(--surface));
+    }
+    .reader-dock .float[aria-pressed="true"] {
+      color: var(--accent);
+      border-color: color-mix(in oklch, var(--accent) 45%, var(--border));
+    }
+    .reader-dock .float[aria-disabled="true"] {
+      opacity: 0.45;
+      cursor: default;
+    }
+    .app[data-view="reader"] .pager { bottom: 68px; }
+    .page .bm-btn { display: none; }
+    .home-bar {
+      height: 24px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .home-bar b {
+      width: 96px;
+      height: 4px;
+      border-radius: 99px;
+      background: var(--fg);
+      opacity: 0.72;
+    }
+
+    .app[data-view="today"] .mast {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 4;
+      background: transparent;
+    }
+    .app[data-view="today"] .brand { visibility: hidden; }
+    .app[data-view="today"] [data-od-id="btn-marks-jump"] { display: none; }
+    #view-today { padding: 0; }
+
+    .issue-cover {
+      height: 100%;
+      min-height: 0;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .issue-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: var(--accent);
+      z-index: 1;
+    }
+    .issue-cover:hover,
+    .issue-cover:focus-within {
+      background: color-mix(in oklch, var(--fg) 7%, var(--surface));
+    }
+    .cover-open {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      min-height: 48px;
+    }
+    .cover-open:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -4px;
+    }
+    .cover-stack {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 8px 22px 18px;
+      pointer-events: none;
+    }
+    .cover-title {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+    .cover-when { margin-top: 2px; }
+    .cover-when .when {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+    .cover-when .where { margin-top: 4px; color: var(--fg); }
+    .cover-art {
+      margin-top: 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .cover-kicker { font-family: var(--font-display); font-size: 48px; line-height: 0.86; letter-spacing: -0.045em; }
+    .cover-kicker span { display: block; }
+    .cover-rule { margin: 18px 0; border-top: 1px solid var(--fg); }
+    .cover-date {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+    }
+    .cover-date b { color: var(--accent); font-weight: 600; }
+    .cover-today { margin-top: 22px; font-size: 11px; color: var(--fg); }
+    .cover-stats { margin-top: 10px; display: flex; gap: 16px; }
+    .cover-stats .meta { color: var(--fg); }
+    .themes { margin-top: auto; padding: 20px 0 0; display: grid; gap: 6px; list-style: none; }
+    .themes li {
+      list-style: none;
+      font-family: var(--font-display);
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cover-foot {
+      margin-top: 16px;
+      align-self: flex-end;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+    .cover-arrow {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      color: var(--fg);
+    }
+    .cover-eta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    .reader-shell { position: absolute; inset: 0; overflow: hidden; touch-action: pan-y; }
+    .pages {
+      height: 100%;
+      display: flex;
+      transition: transform 380ms cubic-bezier(0.22, 0.75, 0.25, 1);
+      will-change: transform;
+    }
+    .page {
+      min-width: 100%;
+      height: 100%;
+      padding: 4px 22px 88px;
+      overflow: auto;
+      background: var(--bg);
+      box-shadow: -12px 0 24px color-mix(in oklch, var(--fg) 8%, transparent);
+      transform-origin: left center;
+    }
+    .page.is-leaving {
+      transform: perspective(1200px) rotateY(-7deg);
+    }
+    .catline {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 18px;
+    }
+    .headline { font-size: 32px; line-height: 1.12; letter-spacing: -0.03em; margin: 10px 0 14px; }
+    .why { margin-top: 22px; }
+    .why .eyebrow { margin-bottom: 8px; }
+    .keys { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .keys ul { margin: 8px 0 0; padding-left: 1.15em; }
+    .keys li {
+      margin: 0 0 8px 1em;
+      padding: 0;
+      color: var(--fg);
+      font-size: 13px;
+    }
+    .source-block { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--fg); }
+    .source-block h4 {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .story-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      border-bottom: 1px solid var(--fg);
+    }
+    .story-link:hover { background: color-mix(in oklch, var(--fg) 6%, transparent); }
+    .page-tools {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .bm-btn {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: var(--fg);
+    }
+    .bm-btn:hover { background: color-mix(in oklch, var(--fg) 6%, transparent); }
+    .bm-btn[aria-pressed="true"] { color: var(--accent); }
+    .pager {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      pointer-events: none;
+    }
+    .page-hit {
+      position: absolute;
+      top: 20%;
+      bottom: 20%;
+      width: 28%;
+      z-index: 3;
+    }
+    .page-hit.prev { left: 0; }
+    .page-hit.next { right: 0; }
+
+    .spread { display: grid; grid-template-rows: auto auto auto; gap: 0; }
+    .cell { padding: 14px 0; border-top: 1px solid var(--fg); }
+    .cell.lead .headline { font-size: 28px; }
+    .duo { display: grid; grid-template-columns: 1fr 1fr; }
+    .duo .cell { padding: 14px 12px 14px 0; }
+    .duo .cell + .cell { padding-left: 12px; border-left: 1px solid var(--border); }
+    .cell h3 { font-size: 18px; margin: 6px 0 8px; }
+    .cell p { font-size: 12px; line-height: 1.5; }
+
+    .ribbon {
+      position: absolute;
+      top: 0;
+      right: 42px;
+      width: 52px;
+      z-index: 14;
+      transform: translateY(-110%);
+      transition: transform 360ms cubic-bezier(0.22, 0.8, 0.25, 1);
+      pointer-events: none;
+    }
+    .ribbon.is-in { transform: translateY(0); }
+    .ribbon-band {
+      background: var(--accent);
+      color: var(--surface);
+      min-height: 132px;
+      padding: 54px 7px 16px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      text-transform: uppercase;
+      box-shadow: 0 8px 16px color-mix(in oklch, var(--fg) 16%, transparent);
+    }
+    .ribbon-notch {
+      height: 14px;
+      background: var(--accent);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    .month-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+    .month-head h1 { font-size: 28px; }
+    .shelf-dek { margin-bottom: 16px; }
+    .shelf {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 4px -22px 0;
+    }
+    .ledge {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 0;
+      min-height: 154px;
+      padding: 14px 22px 12px;
+    }
+    .ledge::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 9px;
+      background: color-mix(in oklch, var(--surface) 78%, var(--fg));
+      border-top: 1px solid var(--border);
+      box-shadow:
+        0 1px 0 color-mix(in oklch, var(--fg) 10%, transparent),
+        inset 0 1px 0 color-mix(in oklch, var(--surface) 88%, var(--fg));
+    }
+    .book {
+      position: relative;
+      flex: 0 0 96px;
+      width: 96px;
+      height: 128px;
+      min-width: 44px;
+      min-height: 44px;
+      margin-left: -26px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--fg);
+      padding: 9px 8px 9px 10px;
+      display: flex;
+      flex-direction: column;
+      transform-origin: 50% 100%;
+      box-shadow: 1px 0 0 color-mix(in oklch, var(--fg) 12%, var(--border));
+      transition:
+        transform 360ms cubic-bezier(0.22, 0.8, 0.25, 1),
+        box-shadow 360ms ease,
+        background-color 280ms ease,
+        border-color 280ms ease,
+        opacity 200ms ease;
+    }
+    .ledge .book:first-child { margin-left: 0; }
+    .ledge .book:nth-child(1) { z-index: 1; }
+    .ledge .book:nth-child(2) { z-index: 2; }
+    .ledge .book:nth-child(3) { z-index: 3; }
+    .ledge .book:nth-child(4) { z-index: 4; }
+    .book .spine {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: transparent;
+    }
+    .book .mini {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+    }
+    .book .dd {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+    .book .ai {
+      font-family: var(--font-display);
+      font-size: 20px;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      margin-top: 3px;
+    }
+    .book .hair {
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin: 7px 0 6px;
+      background: currentColor;
+      opacity: 0.4;
+    }
+    .book .cat {
+      margin-top: auto;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .book[data-ink="openai"] {
+      background: color-mix(in oklch, var(--accent) 20%, var(--surface));
+      color: var(--fg);
+    }
+    .book[data-ink="claude"] {
+      background: color-mix(in oklch, var(--accent) 26%, var(--fg));
+      color: var(--surface);
+    }
+    .book[data-ink="slate"] {
+      background: color-mix(in oklch, var(--fg) 24%, var(--surface));
+      color: var(--fg);
+    }
+    .book[data-ink="paper"] {
+      background: var(--surface);
+      color: var(--fg);
+    }
+    .book[data-read="unread"] {
+      background: color-mix(in oklch, var(--fg) 9%, var(--surface));
+      color: color-mix(in oklch, var(--fg) 80%, var(--surface));
+      border-color: var(--border);
+    }
+    .book[data-read="partial"][data-ink="openai"] {
+      background: color-mix(in oklch, var(--accent) 8%, color-mix(in oklch, var(--fg) 8%, var(--surface)));
+      color: var(--fg);
+    }
+    .book[data-read="partial"][data-ink="claude"] {
+      background: color-mix(in oklch, var(--accent) 8%, color-mix(in oklch, var(--fg) 22%, var(--surface)));
+      color: var(--fg);
+    }
+    .book[data-read="partial"][data-ink="slate"] {
+      background: color-mix(in oklch, var(--fg) 14%, var(--surface));
+      color: var(--fg);
+    }
+    .book[data-read="partial"][data-ink="paper"] {
+      background: color-mix(in oklch, var(--fg) 6%, var(--surface));
+      color: var(--fg);
+    }
+    .book[data-read="done"] {
+      border-color: color-mix(in oklch, var(--fg) 28%, var(--border));
+    }
+    .book[data-read="done"] .spine {
+      width: 3px;
+      background: color-mix(in oklch, var(--surface) 70%, var(--fg));
+    }
+    .book[data-read="done"][data-ink="claude"] .spine {
+      background: color-mix(in oklch, var(--surface) 62%, var(--accent));
+    }
+    .ledge .book:hover {
+      z-index: 20;
+      transform: translateY(-10px);
+      box-shadow: 0 12px 18px color-mix(in oklch, var(--fg) 14%, transparent);
+    }
+    .ledge .book.is-drawn {
+      z-index: 24;
+      transform: translateY(-28px);
+      box-shadow: 0 18px 24px color-mix(in oklch, var(--fg) 16%, transparent);
+    }
+    .book.is-ghost {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .ledge.is-drawing .book:not(.is-drawn) { pointer-events: none; }
+    .book:hover[data-read="unread"],
+    .book.is-drawn[data-read="unread"] {
+      background: color-mix(in oklch, var(--fg) 15%, var(--surface));
+      color: var(--fg);
+    }
+    .book:hover[data-read="partial"][data-ink="openai"],
+    .book.is-drawn[data-read="partial"][data-ink="openai"] {
+      background: color-mix(in oklch, var(--accent) 12%, color-mix(in oklch, var(--fg) 10%, var(--surface)));
+    }
+    .book:hover[data-read="partial"][data-ink="claude"],
+    .book.is-drawn[data-read="partial"][data-ink="claude"] {
+      background: color-mix(in oklch, var(--accent) 12%, color-mix(in oklch, var(--fg) 26%, var(--surface)));
+    }
+    .book:hover[data-read="partial"][data-ink="slate"],
+    .book.is-drawn[data-read="partial"][data-ink="slate"] {
+      background: color-mix(in oklch, var(--fg) 20%, var(--surface));
+    }
+    .book:hover[data-read="partial"][data-ink="paper"],
+    .book.is-drawn[data-read="partial"][data-ink="paper"] {
+      background: color-mix(in oklch, var(--fg) 11%, var(--surface));
+    }
+    .book:hover[data-read="done"][data-ink="openai"],
+    .book.is-drawn[data-read="done"][data-ink="openai"] {
+      background: color-mix(in oklch, var(--accent) 28%, var(--surface));
+    }
+    .book:hover[data-read="done"][data-ink="claude"],
+    .book.is-drawn[data-read="done"][data-ink="claude"] {
+      background: color-mix(in oklch, var(--accent) 34%, var(--fg));
+      color: var(--surface);
+    }
+    .book:hover[data-read="done"][data-ink="slate"],
+    .book.is-drawn[data-read="done"][data-ink="slate"] {
+      background: color-mix(in oklch, var(--fg) 32%, var(--surface));
+    }
+    .book:hover[data-read="done"][data-ink="paper"],
+    .book.is-drawn[data-read="done"][data-ink="paper"] {
+      background: color-mix(in oklch, var(--fg) 8%, var(--surface));
+    }
+
+    .cover-stage {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      background: transparent;
+      pointer-events: none;
+      opacity: 1;
+      transition: background-color 360ms ease, opacity 240ms ease;
+    }
+    .cover-stage.is-open {
+      background: color-mix(in oklch, var(--bg) 82%, transparent);
+      pointer-events: auto;
+    }
+    .cover-stage.is-exit { opacity: 0; pointer-events: none; }
+    .cover-plate {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 216px;
+      height: 288px;
+      padding: 22px 20px 18px 22px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--fg);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      transform-origin: 0 0;
+      transform: translate(var(--from-x), var(--from-y)) scale(var(--from-s));
+      box-shadow: 0 22px 40px color-mix(in oklch, var(--fg) 16%, transparent);
+      transition:
+        transform 400ms cubic-bezier(0.22, 0.8, 0.25, 1),
+        background-color 280ms ease,
+        color 280ms ease;
+    }
+    .cover-stage.is-open .cover-plate {
+      transform: translate(var(--to-x), var(--to-y)) scale(1);
+    }
+    .cover-plate[data-ink="openai"] {
+      background: color-mix(in oklch, var(--accent) 20%, var(--surface));
+    }
+    .cover-plate[data-ink="claude"] {
+      background: color-mix(in oklch, var(--accent) 26%, var(--fg));
+      color: var(--surface);
+    }
+    .cover-plate[data-ink="slate"] {
+      background: color-mix(in oklch, var(--fg) 24%, var(--surface));
+    }
+    .cover-plate[data-ink="paper"] {
+      background: var(--surface);
+    }
+    .cover-plate:hover[data-ink="openai"] {
+      background: color-mix(in oklch, var(--accent) 28%, var(--surface));
+      color: var(--fg);
+    }
+    .cover-plate:hover[data-ink="claude"] {
+      background: color-mix(in oklch, var(--accent) 34%, var(--fg));
+      color: var(--surface);
+    }
+    .cover-plate:hover[data-ink="slate"] {
+      background: color-mix(in oklch, var(--fg) 32%, var(--surface));
+      color: var(--fg);
+    }
+    .cover-plate:hover[data-ink="paper"] {
+      background: color-mix(in oklch, var(--fg) 8%, var(--surface));
+      color: var(--fg);
+    }
+    .cover-plate .ck {
+      font-family: var(--font-display);
+      font-size: 36px;
+      line-height: 0.86;
+      letter-spacing: -0.045em;
+    }
+    .cover-plate .ck span { display: block; }
+    .cover-plate .cr {
+      display: block;
+      margin: 16px 0 14px;
+      border-top: 1px solid currentColor;
+      opacity: 0.4;
+    }
+    .cover-plate .cd {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+    }
+    .cover-plate .cd b {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .cover-plate[data-ink="claude"] .cd b {
+      color: color-mix(in oklch, var(--surface) 78%, var(--accent));
+    }
+    .cover-plate .ct {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 5px;
+    }
+    .cover-plate .ct li {
+      font-family: var(--font-display);
+      font-size: 15px;
+      letter-spacing: -0.02em;
+      padding-bottom: 4px;
+      border-bottom: 1px solid color-mix(in oklch, currentColor 28%, transparent);
+    }
+    .cover-plate .cc {
+      margin-top: auto;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .cover-plate .hint {
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: inherit;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin: 16px 0 8px;
+    }
+    .filter {
+      min-height: 44px;
+      padding: 0 8px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+    .filter:hover { background: color-mix(in oklch, var(--fg) 6%, transparent); }
+    .filter[aria-pressed="true"] { box-shadow: inset 0 -1px 0 var(--accent); color: var(--fg); }
+    .mark-row {
+      width: 100%;
+      text-align: left;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      min-height: 44px;
+      display: grid;
+      gap: 6px;
+    }
+    .mark-row:hover { background: color-mix(in oklch, var(--fg) 5%, transparent); }
+    .mark-row h3 { font-size: 20px; }
+    .mark-row p { font-size: 13px; color: var(--fg); }
+
+    .search-sheet {
+      position: absolute;
+      inset: 36px 0 80px;
+      background: var(--bg);
+      z-index: 13;
+      padding: 8px 22px;
+      transform: translateY(-8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 240ms ease, transform 280ms ease, visibility 240ms;
+    }
+    .search-sheet.is-on { opacity: 1; visibility: visible; transform: none; }
+    .search-sheet input {
+      width: 100%;
+      min-height: 44px;
+      border: 0;
+      border-bottom: 1px solid var(--fg);
+      background: transparent;
+      color: var(--fg);
+      font-family: var(--font-display);
+      font-size: 22px;
+      border-radius: 0;
+    }
+    .search-sheet input:focus { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .search-sheet input::placeholder { color: var(--muted); }
+    .hit { width: 100%; text-align: left; padding: 14px 0; border-bottom: 1px solid var(--border); min-height: 44px; }
+    .hit:hover { background: color-mix(in oklch, var(--fg) 5%, transparent); }
+
+    .paper-toggle {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 12;
+      min-height: 28px;
+      padding: 0 8px;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .paper-toggle:hover { color: var(--fg); background: color-mix(in oklch, var(--fg) 6%, transparent); }
+    .screen:has(.app[data-view="today"]) .paper-toggle {
+      top: 54px;
+      left: auto;
+      right: 80px;
+      transform: none;
+    }
+
+    @media (max-width: 430px) {
+      body { background: var(--bg); }
+      .stage { padding: 0; min-height: 100dvh; }
+      .device {
+        width: 100%;
+        height: 100dvh;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      .screen { border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="device" data-od-id="pixel-frame">
+      <div class="screen">
+        <div class="island" aria-hidden="true"></div>
+        <div class="statusbar" data-od-id="status-bar">
+          <span class="num">08:12</span>
+          <span class="sb-icons" aria-hidden="true"><span class="meta" style="letter-spacing:0.08em;">LTE</span><span class="sb-ic"><i></i></span></span>
+        </div>
+        <button class="paper-toggle" type="button" data-od-id="paper-toggle" aria-pressed="false">紙面 · 朝</button>
+        <div class="app" data-od-id="app-shell" data-view="today">
+          <header class="mast" data-od-id="masthead">
+            <span class="brand">AI Morning Journal</span>
+            <div class="mast-tools">
+              <button class="tool" type="button" data-od-id="btn-search" data-action="search">検索</button>
+              <button class="tool" type="button" data-od-id="btn-marks-jump" data-action="view" data-view="marks">栞</button>
+            </div>
+          </header>
+
+          <div class="views">
+            <section class="view is-on" id="view-today" data-od-id="screen-today" data-view="today">
+              <article class="issue-cover" data-od-id="today-cover">
+                <div class="cover-stack">
+                  <p class="cover-title">AI Morning Journal</p>
+                  <div class="cover-when">
+                    <div class="when">Saturday, September 12</div>
+                    <div class="meta where">Tokyo</div>
+                  </div>
+                  <div class="cover-art">
+                    <div class="cover-kicker"><span>AI</span><span>Morning</span></div>
+                    <div class="cover-rule"></div>
+                    <div class="cover-date"><b>SEP 12</b><span class="num">2026</span></div>
+                    <div class="meta cover-today">Today in AI</div>
+                    <div class="cover-stats">
+                      <span class="meta num">12 stories</span>
+                    </div>
+                    <ul class="themes">
+                      <li>GPT-6 Astra</li>
+                      <li>Claude Code</li>
+                      <li>DeepSeek V4</li>
+                    </ul>
+                  </div>
+                  <div class="cover-foot">
+                    <span class="cover-arrow" aria-hidden="true">
+                      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M5 14h16M15 6l8 8-8 8" stroke="currentColor" stroke-width="1.4"/></svg>
+                    </span>
+                    <span class="cover-eta">読了目安 · 5分</span>
+                  </div>
+                </div>
+                <button class="cover-open" type="button" data-od-id="cta-read-today" data-action="open-issue" data-page="0" aria-label="今日号を読む"></button>
+              </article>
+            </section>
+
+            <section class="view" id="view-reader" data-od-id="screen-reader" data-view="reader">
+              <div class="reader-shell" id="reader-shell">
+                <button class="page-hit prev" type="button" data-od-id="page-prev" data-action="page-delta" data-delta="-1" aria-label="前のページ"></button>
+                <button class="page-hit next" type="button" data-od-id="page-next" data-action="page-delta" data-delta="1" aria-label="次のページ"></button>
+                <div class="pages" id="pages">
+                  <article class="page" data-od-id="reader-cover-story" data-page="0">
+                    <div class="catline">
+                      <p class="eyebrow">01 — 本記</p>
+                      <p class="meta">Model · 01</p>
+                    </div>
+                    <p class="meta">GPT-6 Astra</p>
+                    <h1 class="headline">手順と技能を分ける、新しい設計指針</h1>
+                    <p class="lead">OpenAI が、エージェントの手順文と再利用可能な技能を分離する指針を公開した。長いプロンプトを積む代わりに、短い命令と編集可能な技能単位で挙動を組む。</p>
+                    <div class="why">
+                      <p class="eyebrow">なぜ重要か</p>
+                      <p>開発者はプロンプトを伸ばす作業から、技能を編集する作業へと移る。</p>
+                    </div>
+                    <div class="keys">
+                      <p class="meta">要点</p>
+                      <ul>
+                        <li>技能は手順文から独立して版管理される</li>
+                        <li>命令は短く戻り、例外は技能側に置く</li>
+                        <li>既存のエージェント設計を見直す必要が出る</li>
+                      </ul>
+                    </div>
+                    <div class="source-block">
+                      <h4>出典</h4>
+                      <p style="margin: 8px 0 4px; font-family: var(--font-display); font-size: 20px;">OpenAI</p>
+                      <p class="meta">September 12 · 06:40 · Official Blog</p>
+                      <a class="story-link" href="https://openai.com/blog" target="_blank" rel="noreferrer">原文を読む ↗</a>
+                    </div>
+                    <div class="page-tools">
+                      <button class="bm-btn" type="button" data-od-id="bm-astra" data-action="bookmark" data-story="astra" aria-pressed="false" aria-label="この記事を栞に入れる">
+                        <svg width="14" height="22" viewBox="0 0 14 22" fill="none" aria-hidden="true"><path d="M1 1h12v19l-6-3.2L1 20V1z" stroke="currentColor" stroke-width="1.2"/></svg>
+                      </button>
+                      <p class="meta">AI編集の要約 · 原文ではない</p>
+                    </div>
+                  </article>
+
+                  <article class="page" data-od-id="reader-spread" data-page="1">
+                    <div class="catline">
+                      <p class="eyebrow">02 — 編集組版</p>
+                      <p class="meta">Page 02</p>
+                    </div>
+                    <div class="spread">
+                      <div class="cell lead">
+                        <p class="meta">Model · 01</p>
+                        <h2 class="headline">GPT-6 Astra</h2>
+                        <p>技能アーキテクチャの指針が、エージェント製品の組み立て方を変える。</p>
+                      </div>
+                      <div class="duo">
+                        <div class="cell">
+                          <p class="meta">Developer · 02</p>
+                          <h3>Claude Code</h3>
+                          <p>プラグイン評価が本番の選択経路に入った。</p>
+                          <button class="bm-btn" type="button" data-od-id="bm-claude" data-action="bookmark" data-story="claude" aria-pressed="false" aria-label="Claude Code を栞に入れる" style="margin-left:-8px;">
+                            <svg width="14" height="22" viewBox="0 0 14 22" fill="none" aria-hidden="true"><path d="M1 1h12v19l-6-3.2L1 20V1z" stroke="currentColor" stroke-width="1.2"/></svg>
+                          </button>
+                        </div>
+                        <div class="cell">
+                          <p class="meta">Model · 03</p>
+                          <h3>DeepSeek V4</h3>
+                          <p>API 面が広がり、推論経路の選択肢が増える。</p>
+                          <button class="bm-btn" type="button" data-od-id="bm-deepseek" data-action="bookmark" data-story="deepseek" aria-pressed="false" aria-label="DeepSeek V4 を栞に入れる" style="margin-left:-8px;">
+                            <svg width="14" height="22" viewBox="0 0 14 22" fill="none" aria-hidden="true"><path d="M1 1h12v19l-6-3.2L1 20V1z" stroke="currentColor" stroke-width="1.2"/></svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="cell">
+                        <p class="meta">Product · 04</p>
+                        <h3>Devin Fusion · Kimi</h3>
+                        <p>実装エージェントと長文モデルが、同じ朝刊の下段で並ぶ。面積は重要度そのもの。</p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="page" data-od-id="reader-tools" data-page="2">
+                    <div class="catline">
+                      <p class="eyebrow">03 — 開発者</p>
+                      <p class="meta">Developer · 02</p>
+                    </div>
+                    <p class="meta">Claude Code</p>
+                    <h1 class="headline">評価が、採用の前に置かれる</h1>
+                    <p class="lead">Anthropic は Claude Code 上でプラグインを比較する評価面を追加した。デモの印象ではなく、固定課題での差分を見てから入れる。</p>
+                    <div class="why">
+                      <p class="eyebrow">なぜ重要か</p>
+                      <p>ツール選択が、宣伝文ではなく再現可能な評価に寄る。</p>
+                    </div>
+                    <div class="source-block">
+                      <h4>出典</h4>
+                      <p style="margin: 8px 0 4px; font-family: var(--font-display); font-size: 20px;">Anthropic</p>
+                      <p class="meta">September 12 · 08:32 · Official Docs</p>
+                      <a class="story-link" href="https://www.anthropic.com" target="_blank" rel="noreferrer">原文を読む ↗</a>
+                    </div>
+                    <div class="page-tools">
+                      <button class="bm-btn" type="button" data-od-id="bm-claude-2" data-action="bookmark" data-story="claude" aria-pressed="false" aria-label="この記事を栞に入れる">
+                        <svg width="14" height="22" viewBox="0 0 14 22" fill="none" aria-hidden="true"><path d="M1 1h12v19l-6-3.2L1 20V1z" stroke="currentColor" stroke-width="1.2"/></svg>
+                      </button>
+                      <p class="meta">AI編集の要約 · 原文ではない</p>
+                    </div>
+                  </article>
+
+                  <article class="page" data-od-id="reader-industry" data-page="3">
+                    <div class="catline">
+                      <p class="eyebrow">04 — 産業</p>
+                      <p class="meta">Industry · 04</p>
+                    </div>
+                    <h1 class="headline">公開面が、報道より先に動く</h1>
+                    <p class="lead">今日号の優先順位は公式ブログ、GitHub Release、公式文書、公式の投稿、論文。媒体記事はその後に置く。</p>
+                    <div class="duo" style="margin-top: 18px; border-top: 1px solid var(--fg);">
+                      <div class="cell">
+                        <p class="meta">Research</p>
+                        <h3>評価手順の公開</h3>
+                        <p>再現可能な課題セットが、モデル発表と同じ朝に並ぶ。</p>
+                      </div>
+                      <div class="cell">
+                        <p class="meta">Agent</p>
+                        <h3>Skills 指針</h3>
+                        <p>エージェントの技能を、プロンプトの外で管理する。</p>
+                      </div>
+                    </div>
+                    <div class="source-block">
+                      <h4>出典の置き方</h4>
+                      <p style="margin-top: 8px;">本文は編集要約。判断が必要なら、必ず出典へ戻る。</p>
+                    </div>
+                  </article>
+                </div>
+                <div class="pager num" data-od-id="page-indicator">01 / 12</div>
+              </div>
+            </section>
+
+            <section class="view" id="view-shelf" data-od-id="screen-shelf" data-view="shelf">
+              <div class="month-head">
+                <h1>September</h1>
+                <p class="meta num">2026</p>
+              </div>
+              <p class="meta shelf-dek">読んだ朝が、一冊ずつ残る</p>
+              <div class="shelf" data-od-id="shelf-september">
+                <div class="ledge" data-od-id="ledge-sep-1">
+                  <button class="book" type="button" data-od-id="book-12" data-action="open-book" data-day="12" data-ink="openai" data-read="unread" aria-label="9月12日の朝刊、未読"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">12</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Astra</span></span></button>
+                  <button class="book" type="button" data-od-id="book-11" data-action="open-book" data-day="11" data-ink="claude" data-read="done" aria-label="9月11日の朝刊、読了"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">11</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Code</span></span></button>
+                  <button class="book" type="button" data-od-id="book-10" data-action="open-book" data-day="10" data-ink="slate" data-read="done" aria-label="9月10日の朝刊、読了"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">10</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Model</span></span></button>
+                  <button class="book" type="button" data-od-id="book-09" data-action="open-book" data-day="09" data-ink="paper" data-read="unread" aria-label="9月9日の朝刊、未読"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">09</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Agent</span></span></button>
+                </div>
+                <div class="ledge" data-od-id="ledge-sep-2">
+                  <button class="book" type="button" data-od-id="book-08" data-action="open-book" data-day="08" data-ink="openai" data-read="partial" aria-label="9月8日の朝刊、途中"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">08</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Skill</span></span></button>
+                  <button class="book" type="button" data-od-id="book-07" data-action="open-book" data-day="07" data-ink="claude" data-read="done" aria-label="9月7日の朝刊、読了"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">07</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Tool</span></span></button>
+                  <button class="book" type="button" data-od-id="book-06" data-action="open-book" data-day="06" data-ink="slate" data-read="done" aria-label="9月6日の朝刊、読了"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">06</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Model</span></span></button>
+                  <button class="book" type="button" data-od-id="book-05" data-action="open-book" data-day="05" data-ink="paper" data-read="unread" aria-label="9月5日の朝刊、未読"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">05</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Agent</span></span></button>
+                </div>
+                <div class="ledge" data-od-id="ledge-sep-3">
+                  <button class="book" type="button" data-od-id="book-04" data-action="open-book" data-day="04" data-ink="openai" data-read="done" aria-label="9月4日の朝刊、読了"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">04</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Model</span></span></button>
+                  <button class="book" type="button" data-od-id="book-03" data-action="open-book" data-day="03" data-ink="claude" data-read="done" aria-label="9月3日の朝刊、読了"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">03</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Code</span></span></button>
+                  <button class="book" type="button" data-od-id="book-02" data-action="open-book" data-day="02" data-ink="slate" data-read="partial" aria-label="9月2日の朝刊、途中"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">02</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Research</span></span></button>
+                  <button class="book" type="button" data-od-id="book-01" data-action="open-book" data-day="01" data-ink="paper" data-read="done" aria-label="9月1日の朝刊、読了"><span class="spine" aria-hidden="true"></span><span class="mini"><span class="dd num">01</span><span class="ai">AI</span><span class="hair"></span><span class="cat">Product</span></span></button>
+                </div>
+              </div>
+            </section>
+
+            <section class="view" id="view-marks" data-od-id="screen-marks" data-view="marks">
+              <p class="eyebrow">Bookmarks</p>
+              <h1 style="font-size: 32px; margin: 8px 0 6px;">栞</h1>
+              <p class="meta">印をつけた記事</p>
+              <div class="filter-row" data-od-id="mark-filters">
+                <button class="filter" type="button" data-action="filter" data-filter="all" aria-pressed="true">すべて</button>
+                <button class="filter" type="button" data-action="filter" data-filter="model">モデル</button>
+                <button class="filter" type="button" data-action="filter" data-filter="coding">コーディング</button>
+                <button class="filter" type="button" data-action="filter" data-filter="agent">エージェント</button>
+                <button class="filter" type="button" data-action="filter" data-filter="product">プロダクト</button>
+                <button class="filter" type="button" data-action="filter" data-filter="research">リサーチ</button>
+                <button class="filter" type="button" data-action="filter" data-filter="industry">産業</button>
+              </div>
+              <div id="mark-list"></div>
+            </section>
+          </div>
+
+          <nav class="tabbar" data-od-id="tabbar">
+            <button class="tab" type="button" data-action="view" data-view="today" aria-current="page">今日</button>
+            <button class="tab" type="button" data-action="view" data-view="shelf">書架</button>
+            <button class="tab" type="button" data-action="view" data-view="marks">栞</button>
+          </nav>
+          <nav class="reader-dock" data-od-id="reader-dock" aria-label="紙面操作" aria-hidden="true">
+            <button class="float" type="button" data-od-id="float-back" data-action="reader-back">戻る</button>
+            <button class="float" type="button" data-od-id="float-mark" data-action="reader-mark" aria-pressed="false">栞</button>
+            <button class="float" type="button" data-od-id="float-source" data-action="reader-source">原文</button>
+          </nav>
+          <div class="home-bar" aria-hidden="true"><b></b></div>
+        </div>
+
+        <div class="cover-stage" id="cover-stage" data-od-id="cover-stage" hidden aria-hidden="true">
+          <button class="cover-plate" id="cover-plate" type="button" data-od-id="drawn-cover" data-action="open-drawn-cover"></button>
+        </div>
+        <div class="ribbon" id="ribbon" data-od-id="bookmark-ribbon" aria-hidden="true">
+          <div class="ribbon-band" id="ribbon-label">Astra</div>
+          <div class="ribbon-notch"></div>
+        </div>
+
+        <div class="search-sheet" id="search-sheet" data-od-id="search-sheet" hidden>
+          <input id="search-input" type="search" placeholder="号のなかを探す" aria-label="検索" />
+          <div id="search-hits"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var LS = "amj-android-state";
+      var TOTAL = 12;
+      var pageCount = 4;
+      var page = 0;
+      var view = "today";
+      var lastView = "today";
+      var filter = "all";
+      var pageStories = [
+        { story: "astra", href: "https://openai.com/blog" },
+        { story: "astra", href: "https://openai.com/blog" },
+        { story: "claude", href: "https://www.anthropic.com" },
+        { story: "", href: "" }
+      ];
+      var stories = {
+        astra: { title: "GPT-6 Astra", line: "手順と技能を分ける、新しい設計指針", date: "SEP 12", cat: "model", source: "OpenAI · Agent" },
+        claude: { title: "Claude Code", line: "プラグイン評価が本番経路に入る", date: "SEP 12", cat: "coding", source: "Developer Tools · Anthropic" },
+        deepseek: { title: "DeepSeek V4", line: "API 面が広がり、推論の経路が増える", date: "SEP 10", cat: "model", source: "Model · DeepSeek" }
+      };
+      var marks = { astra: false, claude: false, deepseek: false };
+      var catalog = [
+        { q: "GPT-6 Astra", view: "reader", page: 0 },
+        { q: "Claude Code", view: "reader", page: 2 },
+        { q: "DeepSeek V4", view: "reader", page: 1 },
+        { q: "書架", view: "shelf", page: 0 }
+      ];
+
+      function load() {
+        try {
+          var s = JSON.parse(localStorage.getItem(LS) || "{}");
+          if (s.view) view = s.view;
+          if (typeof s.page === "number") page = s.page;
+          if (s.marks) marks = Object.assign(marks, s.marks);
+          if (s.paper) document.documentElement.setAttribute("data-paper", s.paper);
+        } catch (e) {}
+      }
+      function save() {
+        localStorage.setItem(LS, JSON.stringify({
+          view: view,
+          page: page,
+          marks: marks,
+          paper: document.documentElement.getAttribute("data-paper")
+        }));
+      }
+      function $(sel, root) { return (root || document).querySelector(sel); }
+      function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+      function setView(next, opts) {
+        opts = opts || {};
+        if (next === "reader" && view !== "reader") lastView = view || "today";
+        if (lastView === "reader") lastView = "today";
+        view = next;
+        var shell = $("[data-od-id='app-shell']");
+        if (shell) shell.setAttribute("data-view", next);
+        $$(".view").forEach(function (el) {
+          el.classList.toggle("is-on", el.getAttribute("data-view") === next);
+        });
+        $$(".tab").forEach(function (el) {
+          var tab = el.getAttribute("data-view");
+          var on = tab === next;
+          el.setAttribute("aria-current", on ? "page" : "false");
+        });
+        var dock = $("[data-od-id='reader-dock']");
+        var tabs = $("[data-od-id='tabbar']");
+        if (dock) dock.setAttribute("aria-hidden", next === "reader" ? "false" : "true");
+        if (tabs) tabs.setAttribute("aria-hidden", next === "reader" ? "true" : "false");
+        if (next === "reader") {
+          if (typeof opts.page === "number") page = opts.page;
+          renderPage(!!opts.flip);
+          if (opts.bookmarked) setMark("astra", true);
+          markTodayProgress();
+        }
+        if (next !== "reader") cancelDraw();
+        if (next === "marks") renderMarks();
+        closeSearch(true);
+        save();
+      }
+
+      function pageMeta() {
+        return pageStories[page] || pageStories[0];
+      }
+
+      function syncDock() {
+        var meta = pageMeta();
+        var mark = $("[data-od-id='float-mark']");
+        var src = $("[data-od-id='float-source']");
+        if (mark) {
+          mark.disabled = !meta.story;
+          mark.setAttribute("aria-disabled", meta.story ? "false" : "true");
+          mark.setAttribute("aria-pressed", meta.story && marks[meta.story] ? "true" : "false");
+        }
+        if (src) {
+          src.disabled = !meta.href;
+          src.setAttribute("aria-disabled", meta.href ? "false" : "true");
+          src.setAttribute("data-href", meta.href);
+        }
+      }
+
+      function renderPage(flip) {
+        var pages = $("#pages");
+        var cur = $$(".page")[page];
+        if (flip && cur) {
+          cur.classList.add("is-leaving");
+          setTimeout(function () { cur.classList.remove("is-leaving"); }, 380);
+        }
+        pages.style.transform = "translateX(" + (-page * 100) + "%)";
+        $(".pager").textContent = String(page + 1).padStart(2, "0") + " / " + String(TOTAL).padStart(2, "0");
+        syncMarks();
+        syncDock();
+      }
+
+      function movePage(delta) {
+        var next = Math.max(0, Math.min(pageCount - 1, page + delta));
+        if (next === page) return;
+        page = next;
+        renderPage(true);
+        markTodayProgress();
+        save();
+      }
+
+      function setMark(id, on) {
+        marks[id] = on !== undefined ? on : !marks[id];
+        var ribbon = $("#ribbon");
+        var label = $("#ribbon-label");
+        if (marks[id]) {
+          label.textContent = stories[id].title;
+          ribbon.classList.add("is-in");
+        } else if (!Object.keys(marks).some(function (k) { return marks[k]; })) {
+          ribbon.classList.remove("is-in");
+        } else {
+          var live = Object.keys(marks).filter(function (k) { return marks[k]; }).pop();
+          label.textContent = stories[live].title;
+        }
+        syncMarks();
+        syncDock();
+        renderMarks();
+        save();
+      }
+
+      function syncMarks() {
+        $$("[data-action='bookmark']").forEach(function (btn) {
+          var on = !!marks[btn.getAttribute("data-story")];
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
+
+      function renderMarks() {
+        var box = $("#mark-list");
+        var rows = Object.keys(stories).filter(function (id) {
+          return marks[id] && (filter === "all" || stories[id].cat === filter);
+        });
+        if (!rows.length) {
+          box.innerHTML = '<p class="meta" style="margin-top:24px;">この号では、まだ印がない。</p>';
+          return;
+        }
+        box.innerHTML = rows.map(function (id) {
+          var s = stories[id];
+          return '<button class="mark-row" type="button" data-od-id="mark-' + id + '" data-action="open-mark" data-story="' + id + '">' +
+            '<span class="meta">' + s.date + " · " + s.title + "</span>" +
+            "<h3>" + s.line + "</h3>" +
+            '<span class="meta">' + s.source + "</span></button>";
+        }).join("");
+      }
+
+      function markTodayProgress() {
+        var todayBook = document.querySelector('[data-od-id="book-12"]');
+        if (!todayBook) return;
+        if (page >= pageCount - 1) todayBook.setAttribute("data-read", "done");
+        else if (todayBook.getAttribute("data-read") === "unread") todayBook.setAttribute("data-read", "partial");
+      }
+
+      var drawGen = 0;
+      var drawBtn = null;
+
+      function cancelDraw() {
+        drawGen += 1;
+        drawBtn = null;
+        var stage = $("#cover-stage");
+        if (stage) {
+          stage.classList.remove("is-open", "is-exit");
+          stage.hidden = true;
+          stage.setAttribute("aria-hidden", "true");
+        }
+        $$(".book").forEach(function (b) {
+          b.classList.remove("is-drawn", "is-ghost");
+        });
+        $$(".ledge").forEach(function (l) { l.classList.remove("is-drawing"); });
+        var shelfView = $("#view-shelf");
+        if (shelfView) shelfView.classList.remove("is-drawing");
+      }
+
+      function fillPlate(btn) {
+        var day = btn.getAttribute("data-day") || "";
+        var ink = btn.getAttribute("data-ink") || "paper";
+        var catEl = btn.querySelector(".cat");
+        var cat = catEl ? catEl.textContent : "";
+        var plate = $("#cover-plate");
+        plate.setAttribute("data-ink", ink);
+        plate.setAttribute("aria-label", "9月" + parseInt(day, 10) + "日の朝刊の表紙。開いて読む");
+        var themes = day === "12"
+          ? '<ul class="ct"><li>GPT-6 Astra</li><li>Claude Code</li><li>DeepSeek V4</li></ul>'
+          : "";
+        plate.innerHTML =
+          '<span class="ck"><span>AI</span><span>Morning</span></span>' +
+          '<span class="cr"></span>' +
+          '<span class="cd"><b>SEP ' + day + '</b><span class="num">2026</span></span>' +
+          themes +
+          '<span class="cc">' + cat + "</span>" +
+          '<span class="hint">開く</span>';
+      }
+
+      function placePlateFromBook(btn) {
+        var plate = $("#cover-plate");
+        var screen = plate.closest(".screen");
+        var br = btn.getBoundingClientRect();
+        var sr = screen.getBoundingClientRect();
+        plate.style.setProperty("--from-x", (br.left - sr.left) + "px");
+        plate.style.setProperty("--from-y", (br.top - sr.top) + "px");
+        plate.style.setProperty("--from-s", String(br.width / 216));
+        plate.style.setProperty("--to-x", ((sr.width - 216) / 2) + "px");
+        plate.style.setProperty("--to-y", ((sr.height - 288) / 2 - 8) + "px");
+      }
+
+      function showCoverPlate(btn) {
+        var stage = $("#cover-stage");
+        fillPlate(btn);
+        placePlateFromBook(btn);
+        stage.hidden = false;
+        stage.setAttribute("aria-hidden", "false");
+        btn.classList.add("is-ghost");
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            stage.classList.add("is-open");
+          });
+        });
+      }
+
+      function enterDrawnIssue() {
+        if (!drawBtn) return;
+        var btn = drawBtn;
+        drawBtn = null;
+        drawGen += 1;
+        var gen = drawGen;
+        var stage = $("#cover-stage");
+        if (stage) stage.classList.add("is-exit");
+        if (btn.getAttribute("data-read") === "unread") btn.setAttribute("data-read", "partial");
+        setTimeout(function () {
+          if (gen !== drawGen) return;
+          cancelDraw();
+          setView("reader", { page: 0 });
+        }, 240);
+      }
+
+      function openBook(btn) {
+        var stage = $("#cover-stage");
+        if (drawBtn === btn && stage && !stage.hidden) {
+          enterDrawnIssue();
+          return;
+        }
+        cancelDraw();
+        var gen = drawGen;
+        drawBtn = btn;
+        var ledge = btn.closest(".ledge");
+        if (ledge) ledge.classList.add("is-drawing");
+        var shelfView = $("#view-shelf");
+        if (shelfView) shelfView.classList.add("is-drawing");
+        btn.classList.add("is-drawn");
+        setTimeout(function () {
+          if (gen !== drawGen) return;
+          showCoverPlate(btn);
+        }, 360);
+        setTimeout(function () {
+          if (gen !== drawGen) return;
+          enterDrawnIssue();
+        }, 1080);
+      }
+
+      function togglePaper() {
+        var root = document.documentElement;
+        var night = root.getAttribute("data-paper") !== "night";
+        root.setAttribute("data-paper", night ? "night" : "morning");
+        var t = $(".paper-toggle");
+        t.textContent = night ? "紙面 · 夜" : "紙面 · 朝";
+        t.setAttribute("aria-pressed", night ? "true" : "false");
+        save();
+      }
+
+      function openSearch() {
+        var sheet = $("#search-sheet");
+        sheet.hidden = false;
+        sheet.classList.add("is-on");
+        $("#search-input").focus();
+        drawHits("");
+      }
+      function closeSearch(silent) {
+        var sheet = $("#search-sheet");
+        sheet.classList.remove("is-on");
+        if (!silent) $("#search-input").value = "";
+        setTimeout(function () { if (!sheet.classList.contains("is-on")) sheet.hidden = true; }, 240);
+      }
+      function drawHits(q) {
+        var box = $("#search-hits");
+        var hits = catalog.filter(function (item) {
+          return !q || item.q.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+        });
+        box.innerHTML = hits.map(function (item) {
+          return '<button class="hit" type="button" data-action="hit" data-view="' + item.view + '" data-page="' + item.page + '">' + item.q + "</button>";
+        }).join("");
+      }
+
+      function applyHash() {
+        var h = (location.hash || "").replace("#", "");
+        if (h === "night") {
+          document.documentElement.setAttribute("data-paper", "night");
+          var nt = $(".paper-toggle");
+          nt.textContent = "紙面 · 夜";
+          nt.setAttribute("aria-pressed", "true");
+          setView("today");
+          return;
+        }
+        if (h === "today") setView("today");
+        else if (h === "reader") setView("reader", { page: 0 });
+        else if (h === "spread") setView("reader", { page: 1 });
+        else if (h === "bookmarked") setView("reader", { page: 0, bookmarked: true });
+        else if (h === "shelf") setView("shelf");
+        else if (h === "marks") setView("marks");
+        else setView(view, { page: page });
+      }
+
+      var startX = 0, tracking = false;
+      var shell = $("#reader-shell");
+      shell.addEventListener("pointerdown", function (e) {
+        if (view !== "reader") return;
+        tracking = true;
+        startX = e.clientX;
+      });
+      window.addEventListener("pointerup", function (e) {
+        if (!tracking) return;
+        tracking = false;
+        var dx = e.clientX - startX;
+        if (dx < -48) movePage(1);
+        else if (dx > 48) movePage(-1);
+      });
+
+      document.addEventListener("click", function (e) {
+        var t = e.target.closest("[data-action]");
+        if (!t) return;
+        var act = t.getAttribute("data-action");
+        if (act === "view") setView(t.getAttribute("data-view"));
+        if (act === "open-issue") setView("reader", { page: Number(t.getAttribute("data-page") || 0) });
+        if (act === "page-delta") movePage(Number(t.getAttribute("data-delta")));
+        if (act === "bookmark") setMark(t.getAttribute("data-story"));
+        if (act === "reader-back") setView(lastView || "today");
+        if (act === "reader-mark") {
+          var markId = pageMeta().story;
+          if (markId) setMark(markId);
+        }
+        if (act === "reader-source") {
+          var href = t.getAttribute("data-href") || pageMeta().href;
+          if (href) window.open(href, "_blank", "noreferrer");
+        }
+        if (act === "open-book") openBook(t);
+        if (act === "open-drawn-cover") enterDrawnIssue();
+        if (act === "filter") {
+          filter = t.getAttribute("data-filter");
+          $$(".filter").forEach(function (b) { b.setAttribute("aria-pressed", b === t ? "true" : "false"); });
+          renderMarks();
+        }
+        if (act === "open-mark") {
+          var dest = t.getAttribute("data-story") === "claude" ? 2 : t.getAttribute("data-story") === "deepseek" ? 1 : 0;
+          setView("reader", { page: dest });
+        }
+        if (act === "search") openSearch();
+        if (act === "hit") setView(t.getAttribute("data-view"), { page: Number(t.getAttribute("data-page") || 0) });
+      });
+      $(".paper-toggle").addEventListener("click", togglePaper);
+      $("#search-input").addEventListener("input", function (e) { drawHits(e.target.value); });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeSearch();
+        if (view === "reader" && e.key === "ArrowRight") movePage(1);
+        if (view === "reader" && e.key === "ArrowLeft") movePage(-1);
+      });
+
+      load();
+      applyHash();
+      window.addEventListener("hashchange", applyHash);
+    })();
+  </script>
+</body>
+</html>

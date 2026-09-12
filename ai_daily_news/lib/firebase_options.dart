@@ -53,7 +53,7 @@ class DefaultFirebaseOptions {
     projectId: 'aidaily-2b873',
     authDomain: 'aidaily-2b873.firebaseapp.com',
     storageBucket: 'aidaily-2b873.firebasestorage.app',
-    measurementId: 'G-EHK0PPBMTB',
+    measurementId: 'G-N8JP0Q3MN0',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -63,7 +63,6 @@ class DefaultFirebaseOptions {
     projectId: 'aidaily-2b873',
     storageBucket: 'aidaily-2b873.firebasestorage.app',
   );
-
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBhxadKuYO3aZ-NODH6SXQwxMS8RI80nX8',
     appId: '1:218656007172:ios:2188813ee408a249fd0151',

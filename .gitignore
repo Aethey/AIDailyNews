@@ -1,0 +1,8 @@
+.DS_Store
+
+# Google OAuth / Cloud client secrets — NEVER commit these.
+client_secret*.json
+*client_secret*.json
+*-credentials.json
+*service-account*.json
+*firebase-adminsdk*.json
