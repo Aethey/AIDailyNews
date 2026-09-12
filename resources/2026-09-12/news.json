@@ -1,0 +1,180 @@
+{
+  "date": "2026-09-12",
+  "articles": [
+    {
+      "title": "OpenAI 发布 Agents API：Codex Harness 正式服务化",
+      "summary": "OpenAI 将驱动 Codex 的 Agent Harness 与基础设施作为托管 API 开放，Agent Runtime 开始产品化。",
+      "body": "OpenAI 于 9 月 10 日发布 Agents API。开发者可以配置模型、工具、MCP、Sandbox 和 Subagents，并获得长会话、自动 Context Compaction、恢复与并行执行等能力。过去需要团队自己维护的 agent loop、context 管理和 sandbox，现在开始被封装成云端运行时。",
+      "source_url": "https://openai.com/index/introducing-the-agents-api/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "DeepSeek V4.1 Flash 发布：小模型反超 V4 Pro，并准备替代旧旗舰",
+      "summary": "DeepSeek 推出 V4.1 Flash，强调更低激活参数、更低成本和更高推理效率。",
+      "body": "DeepSeek 发布 552B MoE 的 V4.1 Flash，采用 Causal Encoder–Decoder 非对称结构，输入激活 8B、输出激活 16B，并原生支持视觉。官方表示其在性能、成本、速度和总运行时间上已超过 V4 Pro。9 月 14 日 12:00（北京时间）后，deepseek-v4-pro 请求将暂时路由到 V4.1 Flash，并按 Flash 价格计费，直到 V4.1 Pro 上线。",
+      "source_url": "https://deepseek.com/news/deepseek-v4-1-flash/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Sakana AI 发布 Fugu Max 与 Fugu Ultra v2：把选模型交给模型",
+      "summary": "Sakana AI 推出新的模型编排系统，让系统根据任务自动选择和组合不同模型。",
+      "body": "Sakana AI 9 月 11 日推出 Fugu Max 和 Fugu Ultra v2。它们的重点不是打造单一更大的 Foundation Model，而是根据任务在开放模型与专业模型池中自动选择、组合和编排，在能力与成本之间动态权衡。",
+      "source_url": "https://sakana.ai/fugu-max-release/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Kimi K2.8 Preview 已全量进入 Kimi Code",
+      "summary": "K2.8 Preview 已上线 Kimi Code，加入多档 reasoning effort 与最长 1M 上下文。",
+      "body": "Kimi Code 文档显示，K2.8 Preview 已全量上线 kimi-for-coding，无需修改配置即可升级。它主打接近 K3 的综合性能、更高思考效率，并提供 low、high、max 三档 reasoning effort，以及最高 1M 上下文。",
+      "source_url": "https://www.kimi.com/code/docs/kimi-code/models.html",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "阿里云 Token Plan：一个订阅接入 Claude Code、Cursor、Codex 等工具",
+      "summary": "阿里云 Model Studio 用统一 Credits 连接多种 AI Coding 与 Agent 工具。",
+      "body": "阿里云 Model Studio 更新 Token Plan，以统一 Credits 计量，可用于 Claude Code、Cursor、Qwen Code、Codex、Qoder、OpenClaw 等支持自定义 OpenAI 或 Anthropic 协议的工具。套餐同时覆盖文本、图像、视频、语音以及部分 Harness 工具。",
+      "source_url": "https://www.alibabacloud.com/help/en/model-studio/token-plan-overview",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Codex 0.154.0：GPT-6 Astra、Worktree 与不中断交互进入 CLI",
+      "summary": "Codex CLI 新版本加入 GPT-6 Astra、Worktree 和任务执行期间持续交互能力。",
+      "body": "OpenAI Codex 9 月 9 日发布 rust-v0.154.0。GPT-6 Astra 进入模型选择器；新增实验性的 --worktree 与 /worktree，可为新 Session 创建隔离 checkout；Agent 工作期间也可以继续回答澄清问题，而不打断主任务。",
+      "source_url": "https://github.com/openai/codex/releases",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Codex Reset Watch：社区继续追踪额度重置",
+      "summary": "社区继续追踪 Codex 额度重置与异常，但本周末再次重置没有官方确认。",
+      "body": "codex-resets.com 持续记录 Codex 额度重置事件，其记录显示最近一次全员重置发生在 9 月 8 日。与此同时，OpenAI Codex GitHub 本周出现多条用户报告，包括周额度突然归零、重置日期变化以及 Banked Reset 未正确生效等情况。目前没有官方确认本周末会再次重置。",
+      "source_url": "https://codex-resets.com/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "GPT-Live 1 API 正式 GA：语音与后台 Agent 可以同时工作",
+      "summary": "GPT-Live 1 API 进入 GA，支持前台全双工语音与后台 Agent 同时运行。",
+      "body": "OpenAI Release Notes 显示，GPT-Live 1 已在 API 中 GA。它支持全双工语音对话，同时后台模型或 Agent 可以继续 reasoning 和工具调用。语音会话按秒计费，标价为每分钟 0.05 美元，后台模型与工具费用另计。",
+      "source_url": "https://openai.com/products/release-notes/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Anthropic 发布新一期 AI 滥用报告",
+      "summary": "Anthropic 总结 Claude 在网络攻击、监控、诈骗等真实滥用链条中的案例。",
+      "body": "Anthropic 9 月 10 日发布 Threat Intelligence 报告，回顾过去八个月中其发现并中止的 AI 滥用活动，涉及网络行动、影响行动、监控、诈骗、生物风险、常规武器以及模型蒸馏等领域。",
+      "source_url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Gemini 正式登陆 Windows",
+      "summary": "Google 推出 Windows 版 Gemini App，用快捷键把 Gemini 变成桌面常驻入口。",
+      "body": "Google 9 月 10 日发布 Windows 版 Gemini App，可通过 Alt + Space 快捷键直接调用 Gemini。应用整合 Google 应用信息、任务处理，以及图像和视频生成能力。",
+      "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-windows/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Claude Code v2.1.269：Workflow 并行 Agent 上限扩到 256",
+      "summary": "Claude Code 新版加入 Plugin Eval，并把 Workflow 单轮并行 Agent 上限扩大到 256。",
+      "body": "TECH NOISY 9 月 12 日整理 Claude Code v2.1.269 更新：新增 claude plugin eval，可把插件评估结果输出为 JSON 或 HTML；Workflow 同一轮并行 Agent 数可配置为 1 到 256；VS Code 增加 agent map，用于查看 Agent 状态。",
+      "source_url": "https://tech-noisy.com/2026/09/12/claude-code-256-parallel-agents-plugins/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Claude Enterprise 推出 Smart Reports",
+      "summary": "Claude Enterprise 开始自动分析团队如何使用 Chat、Claude Code 和 Cowork。",
+      "body": "Anthropic 的 Smart Reports 已进入 Claude Enterprise Beta。管理员可以让 Claude 分析团队近 28 天的 Chat、Claude Code 和 Cowork 使用记录，按工作流聚类，并关联成本、摩擦点与重复模式，也能识别适合封装为共享 Skill 的实践。Beta 期间每个组织每月最多可免费生成 10 份报告。",
+      "source_url": "https://support.claude.com/en/articles/16893491-get-started-with-smart-reports",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "ChatGPT Work 上线 Data agent",
+      "summary": "OpenAI 将企业数据查询、分析和 Dashboard 生成整合进可执行 Data agent。",
+      "body": "OpenAI 推出 ChatGPT Work Data agent，可连接企业数据，调查指标变化、生成答案与交互式 Dashboard，并在同一会话中继续细化分析。对应 Data plugin 也进入 ChatGPT Work 与 Codex。",
+      "source_url": "https://openai.com/index/put-data-to-work/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "ChatGPT for Financial Services：OpenAI 推出金融行业版本",
+      "summary": "OpenAI 发布面向金融机构的 ChatGPT Work 版本，并集成多种专业金融数据。",
+      "body": "OpenAI 发布面向金融机构的 ChatGPT Work 版本，结合 GPT-6 Astra，并内置 Daloopa、PitchBook、LSEG News 等专业数据。产品由 Morgan Stanley、Evercore 等设计合作伙伴参与打磨，主要面向金融研究、模型和客户材料生成。",
+      "source_url": "https://openai.com/index/introducing-chatgpt-financial-services/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "OpenAI 项目 API Key 支持强制过期",
+      "summary": "OpenAI API 新增 Project API Key 生命周期控制，补齐企业级密钥治理能力。",
+      "body": "OpenAI API 已允许创建带过期日期的 Project API Key。管理员还可以在组织或项目级规定最大 Key 生命周期，要求新建 Key 必须在指定时间内失效。",
+      "source_url": "https://openai.com/products/release-notes/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Vercel AI SDK Harness 接入 GitHub Copilot",
+      "summary": "Vercel 为 Coding Agent 提供统一 Harness 抽象，并新增 GitHub Copilot Adapter。",
+      "body": "Vercel 的 AI SDK harness layer 新增 GitHub Copilot Adapter。应用可以通过统一的 HarnessAgent 接口运行 GitHub Copilot、Claude Code、Codex、Cursor、Deep Agents、Cline 等不同 Coding Harness，而不修改上层业务代码。",
+      "source_url": "https://vercel.com/changelog/github-copilot-ai-sdk-harness-adapter",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Google ADK for Kotlin 1.0 GA",
+      "summary": "Google 的 Kotlin Agent Development Kit 进入 1.0，Android 正式加入 Agent Framework 生态。",
+      "body": "Google 发布 Agent Development Kit for Kotlin 1.0，达到 ADK Core 1.0 的功能对齐，并加入 Android-first 能力，包括 LiteRT-LM 与 ML Kit 本地 Agent、Firebase AI Logic 混合云工作流，以及通过 Room 和 AppSearch 在进程重启后持久化 Agent State。",
+      "source_url": "https://developers.googleblog.com/announcing-adk-for-kotlin-10-building-production-ready-ai-agents-in-kotlin-android-and-beyond/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "vLLM 0.29.0 发布",
+      "summary": "vLLM 继续推进 Model Runner V2，并持续更新模型支持与高性能推理栈。",
+      "body": "vLLM 发布 0.29.0。新版本继续推进 Model Runner V2，并对模型支持和推理栈进行大量更新；旧 V1 路径已进入弃用进程。",
+      "source_url": "https://github.com/vllm-project/vllm/releases",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Suno v6：AI 音乐模型开始与唱片行业共同设计",
+      "summary": "Suno 发布 v6 系列，并把模型能力与版权、艺人合作和分润机制一起推进。",
+      "body": "Suno 发布 v6、v6-wild、v6-mini 三个音乐模型。新能力包括自然语言局部编辑、多个来源 Mashup、采样与分离，以及文本、音频、图片、视频多模态输入。v6 与 Warner Music Group、BMG、Believe 等行业伙伴共同开发，并计划推出艺人可选择加入且获得报酬的新体验。",
+      "source_url": "https://suno.com/blog/introducing-v6",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "华为 CodeArts Agent 上线 CodebaseWiki",
+      "summary": "CodebaseWiki 自动维护结构化代码知识，并同时服务开发者阅读和 Agent 上下文。",
+      "body": "华为云码道 CodeArts 9 月 10 日上线 CodebaseWiki，可一键生成、增量更新并随代码同步结构化文档。生成内容分为全局 codebase knowledge 与项目专属 project knowledge，同时用于开发者阅读和 Agent 理解代码库。VS Code 与 JetBrains 插件也新增 macOS ARM64 与 Intel 支持。",
+      "source_url": "https://support.huaweicloud.com/wtsnew-codeartsagent/index.html",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Mistral × Cloudera 推进 Sovereign AI",
+      "summary": "Mistral 与 Cloudera 合作，把模型部署到企业已有的私有数据环境。",
+      "body": "Mistral 与 Cloudera 宣布合作，把专业模型和 AI 能力部署到企业已有的私有数据环境，覆盖 on-prem 与 cloud 等场景，重点面向金融、制造、电信等受监管行业。",
+      "source_url": "https://mistral.ai/news/mistral-x-cloudera/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "OpenAI 与美国 GSA 达成政府 AI 协议",
+      "summary": "OpenAI 为美国公共部门提供零许可证费用与部分 Usage 折扣。",
+      "body": "OpenAI for Government 与美国 General Services Administration 宣布多年协议，为联邦、州、地方和部落政府提供 0 美元许可证费用，并对符合条件的使用量提供 50% 折扣，同时扩大公共部门网络安全支持以及采购、FinOps 和培训指导。",
+      "source_url": "https://openai.com/index/expanding-ai-access-us-government/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Vercel Sandbox 扩展至 20 个区域，并把默认存储提高到 64GB",
+      "summary": "Vercel 扩大 Sandbox 全球区域覆盖，并提高默认存储容量。",
+      "body": "Vercel Sandbox 现在可以运行在全部 20 个 Vercel Compute Region，以支持更低延迟、数据驻留和 Failover。9 月 11 日，Vercel 又把最新 SDK 与 CLI 的默认 Sandbox Storage 从 32GB 提升到 64GB。",
+      "source_url": "https://vercel.com/changelog/vercel-sandbox-is-now-available-in-all-regions",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "OpenAI 官方确认 Codex 曾出现意外 Usage Limit Reset 事故",
+      "summary": "OpenAI Status 确认部分 Codex 用户在 9 月 9 日遭遇异常额度重置。",
+      "body": "OpenAI Status 显示，9 月 9 日部分 Codex 用户出现 unexpected usage limit resets。官方在 17:29 开始调查，17:40 确认问题，17:45 进入监控，并于 17:54 宣布恢复。",
+      "source_url": "https://status.openai.com/incidents/01M23KG62KKK448RN434CQ64Z8",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Dify 在东京把主题从做出 Agent 推进到让 Agent 真正在企业跑起来",
+      "summary": "IF Con Tokyo 2026 把讨论重点放在 Agent 的本番运用、治理与企业推广。",
+      "body": "LangGenius 9 月 10 日在东京举办 IF Con Tokyo 2026，核心主题是让生成式 AI 从 PoC 进入组织、业务与产品的本番运用。议题集中在开发环境、运营体制、治理、安全和企业推广。",
+      "source_url": "https://luma.com/ifcon2026",
+      "estimated_read_minutes": 1
+    }
+  ]
+}
