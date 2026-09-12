@@ -1,0 +1,55 @@
+{
+  "date": "2026-09-13",
+  "layout": "single_page_article",
+  "articles": [
+    {
+      "title": "GitHub Copilot 代码评审改用多 Agent 合议",
+      "summary": "Copilot Code Review 的 Lite 档位改为多 Agent 协同评审，重大问题被采纳的数量提升 47%，同时加入自动关闭已修复评论。",
+      "body": "GitHub 9 月 11 日更新 Copilot Code Review：开发者提交修复后，Copilot 会在重新评审时自动关闭已经解决的评论；应用它给出的修复建议时，也会根据实际改动生成更合适的提交信息。更大的变化发生在后台，Lite 档位不再只由一个 Agent 检查代码，而是让多个 Agent 分别分析后合并结果，并可在受控环境中运行构建、测试和脚本。GitHub 的实验数据显示，高严重度问题对应的已处理评论增加 47%，中等问题增加 31%，同时单次评审成本约下降 8%。这让“便宜但浅”的 Lite 开始更接近真正可用于日常 PR 流程的默认评审层。",
+      "source_url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "GitHub 开始统计企业里到底用了哪些 VS Code Agent",
+      "summary": "Copilot 企业用量报告首次加入 VS Code Agents 独立指标，管理员可以看到活跃用户、会话数和不同 Agent 的实际使用情况。",
+      "body": "GitHub 同日在 Copilot usage metrics 中正式加入 VS Code Agents 数据。企业和组织管理员现在可以查看每天有多少用户打开专门的 Agents 窗口，以及各 Agent 的 session 数和用户消息量；1 天和 28 天的聚合报告、用户级报告都支持这些字段。此前企业通常只能看到 Copilot 席位、聊天或补全层面的总体使用，很难判断 Agent 功能到底有没有被员工真正采用。新的指标把“AI Agent 上线”从功能开关变成了可测量的内部产品：团队可以比较不同 Agent 的使用强度、持续性与覆盖范围，再决定培训、治理和预算。它也说明 Coding Agent 的竞争已经进入运营阶段，而不只是模型能力阶段。",
+      "source_url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "OpenAI 公开 ChatGPT 十亿用户背后的存储架构",
+      "summary": "OpenAI 公开应用存储平台 Habitat 的扩展过程，解释 ChatGPT 在十亿级用户规模下如何处理高并发、连接池和尾延迟。",
+      "body": "OpenAI 9 月 11 日发布工程文章，首次系统介绍支撑 ChatGPT 应用数据的存储服务 Habitat。它最初以 Python 构建，用来统一多个快速增长产品对在线数据库的访问，随后面对十亿级用户带来的连接池、负载均衡、asyncio 延迟和下游洪峰问题不断重构。文章特别强调 Habitat 的目标不是做更多逻辑，而是把流量整形、保护数据库和统一访问模式这些基础职责做稳定；团队随后开始把关键路径迁移到 Rust，并继续优化 Azure Cosmos DB 层。相比模型发布，这类内容更接近 AI 产品真正进入超大规模后的工程现实：瓶颈往往不在推理本身，而在状态、连接和数据访问。",
+      "source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-one/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Amazon Ads 正式把广告库存接入 ChatGPT",
+      "summary": "Amazon Ads 与 OpenAI 合作，在美国小范围测试通过 Amazon DSP 购买 ChatGPT 广告，让对话式 AI 开始进入成熟广告购买体系。",
+      "body": "Amazon Ads 宣布与 OpenAI 合作，把 ChatGPT Ads 接入 Amazon DSP。美国部分广告主已经开始参与试点，意味着品牌不需要单独学习一套全新的 AI 广告后台，就可以把既有 Amazon Ads 活动扩展到 ChatGPT 的会话场景。现阶段广告仍由 OpenAI 决定何时、在哪里展示，Amazon 主要承担广告主接入、投放和优化入口。这个变化比“ChatGPT 开始出现广告”更进一步：对话式 AI 正被纳入成熟的程序化广告基础设施，用户在比较商品、旅行方案或购买决策时产生的意图，开始成为可以被商业系统直接购买的广告场景。目前试点仅面向美国部分广告主，日本尚未宣布开放。",
+      "source_url": "https://advertising.amazon.com/ja-jp/library/news/amazon-ads-chat-gpt-advertising-integration",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "日本 CoeFont v4 将 AI 语音生成提速最高 61 倍",
+      "summary": "日本 AI 语音公司 CoeFont 发布 v4，新模型在保持语音质量的同时显著缩短生成等待时间，长文本测试最高提速 61 倍。",
+      "body": "日本 CoeFont 9 月 11 日正式上线 CoeFont v4，核心变化不是增加新的角色或编辑功能，而是直接重做语音生成模型和推理流程。公司公布的内部测试中，部分长文本从约 10.36 秒缩短到 0.17 秒，最高达到 61 倍加速、生成时间减少约 98%，同时宣称语音精度维持原有水平。这个指标需要注意，它是 CoeFont 自己在特定文本和环境下测得，并不等于所有任务都会获得同样提升。但对于旁白、培训视频、客服语音和需要频繁试听修改的制作流程，延迟从“需要等待”降到接近即时反馈，会直接改变迭代方式。它也是今天少数值得关注的日本本土生成式 AI 产品更新。",
+      "source_url": "https://prtimes.jp/main/html/rd/p/000000144.000078329.html",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "25 位菲尔兹奖得主公开批评 AI 数学竞赛逻辑",
+      "summary": "陶哲轩等 25 位菲尔兹奖得主发表联名声明，批评 AI 公司把解决著名数学难题当作能力排行榜，认为这正在伤害数学共同体。",
+      "body": "陶哲轩、Peter Scholze、Maryna Viazovska 等 25 位菲尔兹奖得主 9 月 11 日发表联名声明，矛头并不是指向“AI 不该做数学”，而是 AI 公司把著名开放问题当作公开能力榜单的竞争方式。声明认为，数学进步不仅是得到一个真假答案，还依赖可理解的思路、完整写作、对前人工作的引用、同行核验以及把方法传给下一代研究者。近期 OpenAI 宣布内部多 Agent 系统给出 Navier–Stokes 千禧年难题证明后，优先权、引用和发布速度的争论迅速升级。这个声明的重要之处在于，它把 AI 科研的争议从“模型是否真的会证明”转向了更难的问题：机器发现应该如何进入现有的科学信用和验证体系。",
+      "source_url": "https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Vercel 开始限制谁能给 Agent 配外部服务权限",
+      "summary": "Vercel Connect 新增 Connector Manager 权限，团队可限制只有指定人员才能创建或修改 Agent 使用的外部服务连接。",
+      "body": "Vercel 9 月 11 日给 Connect 增加 Connector Permissions。Pro 和 Enterprise 团队现在可以在 Team Settings 中开启限制，之后只有 Owner 或拥有 Connector Manager 扩展权限的人，才能新建和管理 connector。Connect 本身用于让应用和 Agent 访问 Slack、GitHub、Salesforce 等外部服务，并由团队集中管理认证信息。过去 Agent 基础设施讨论更多集中在“怎么把工具接进来”，而这次更新处理的是上线之后的问题：谁有权给 Agent 增加一个新系统、替换认证方式或扩大它能访问的数据范围。随着 MCP 和工具调用进入生产环境，连接器管理正在从开发配置变成真正的权限治理对象。",
+      "source_url": "https://vercel.com/changelog",
+      "estimated_read_minutes": 1
+    }
+  ]
+}
