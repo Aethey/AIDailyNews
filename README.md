@@ -6,9 +6,7 @@ An agent gathers stories with MCP and publishes them as public JSON on GitHub. T
 
 There is no custom database and no recommendation server. Personalization is a thin loop: **read quietly → inspect behavior → pick better news tomorrow**.
 
-![Architecture](docs/architecture.svg)
-
-Editable source: [docs/architecture.excalidraw](docs/architecture.excalidraw)
+![Architecture](docs/architecture.excalidraw.svg)
 
 ## Loop
 
