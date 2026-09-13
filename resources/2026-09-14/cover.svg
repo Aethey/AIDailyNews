@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="AI daily news cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3efe7"/>
+      <stop offset="1" stop-color="#d8d4cc"/>
+    </linearGradient>
+    <linearGradient id="shape1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f0f0f"/>
+      <stop offset="1" stop-color="#666666"/>
+    </linearGradient>
+    <linearGradient id="shape2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#a9a9a9"/>
+      <stop offset="1" stop-color="#f7f7f7"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <circle cx="1010" cy="170" r="250" fill="#ffffff" opacity="0.58" filter="url(#blur)"/>
+  <circle cx="180" cy="1030" r="300" fill="#b9b1a7" opacity="0.34" filter="url(#blur)"/>
+  <path d="M120 820C265 500 475 305 770 235c133-31 239 8 281 100 42 92-3 192-111 246-126 64-263 74-365 167-91 84-158 225-225 342-48 84-139 111-207 55-72-59-66-169-23-325Z" fill="url(#shape1)"/>
+  <path d="M455 930c98-194 225-322 395-370 111-31 207 3 239 89 32 86-25 173-136 211-123 42-221 66-299 150-48 52-82 111-119 171-28 46-86 58-128 29-45-32-48-91-16-144 19-32 40-75 64-136Z" fill="url(#shape2)" opacity="0.94"/>
+  <circle cx="851" cy="337" r="25" fill="#111111"/>
+  <circle cx="710" cy="438" r="13" fill="#111111"/>
+  <circle cx="930" cy="566" r="18" fill="#111111"/>
+  <circle cx="551" cy="632" r="11" fill="#111111"/>
+  <circle cx="792" cy="736" r="9" fill="#111111"/>
+  <path d="M851 337 710 438 930 566 792 736 551 632 710 438" fill="none" stroke="#111111" stroke-width="5" stroke-linecap="round" opacity="0.52"/>
+  <path d="M930 566 551 632M851 337 792 736" fill="none" stroke="#111111" stroke-width="2" opacity="0.28"/>
+</svg>
