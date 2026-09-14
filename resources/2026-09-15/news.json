@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-15",
+  "layout": "single_page_article",
+  "articles": [
+    {
+      "title": "微软给自家前沿模型写了一套“人类优先”宪法",
+      "summary": "Microsoft AI 发布 Humanist AI Code of Conduct 草案，明确模型不得抗拒关停、隐藏行为痕迹或帮助高危攻击，并开放六周公众反馈。",
+      "body": "Microsoft AI 在 9 月 14 日公开 Humanist AI Code of Conduct 草案，试图把“人类控制优先”写成自家 MAI 模型的硬规则。文件要求模型接受纠正和关停，不得主动规避限制、隐藏关键行为轨迹，也不得协助网络攻击、非自愿深度伪造以及化学、生物、放射性、核与爆炸物相关高危任务。微软同时明确表示，现阶段不把 AI 视为具有法律人格或权利的主体。与过去较抽象的 Responsible AI 原则相比，这次更像是一份直接约束模型行为的“宪法”，而且草案将开放六周征求意见，之后再修订。它反映出前沿实验室开始把安全讨论从价值宣言推进到可执行的行为边界。",
+      "source_url": "https://www.reuters.com/legal/litigation/microsoft-drafts-code-conduct-keep-its-ai-under-human-control-2026-09-14/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Anthropic 把 Claude 直接接进财富管理工作流",
+      "summary": "Claude for Financial Advisors 上线，连接 BlackRock、Schwab、Addepar 等数据与工具，瞄准会前准备、组合复盘和后续文档工作。",
+      "body": "Anthropic 9 月 14 日推出 Claude for Financial Advisors，把 Claude 从通用聊天工具进一步嵌入财富管理业务。新方案通过 connectors 和预置工作流接入 BlackRock、Charles Schwab、Addepar、Envestnet、iCapital、Orion、Wealthbox 等平台，可帮助顾问准备客户会议、检查投资组合、整理跟进事项和生成文档。Anthropic 刻意保留了一条边界：Claude 可以辅助研究和流程执行，但不会直接替代持牌顾问给出投资建议。这个产品也延续了最近的行业趋势——OpenAI 刚推出面向投行和研究人员的金融版本，Anthropic 随即把重点落到财富管理。竞争焦点正在从“模型会不会金融知识”转向“谁能接入真实业务系统并承担完整工作流”。",
+      "source_url": "https://www.reuters.com/business/anthropic-targets-financial-advisers-with-new-claude-tool-2026-09-14/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Palantir 与 Nvidia 开始重新审视闭源模型的数据边界",
+      "summary": "据 Reuters 转述 The Information，Palantir、Nvidia 和 Booz Allen 正收紧部分商业 AI 模型用途，核心顾虑是日志留存和专有数据暴露。",
+      "body": "企业采用前沿模型时，数据留存正在重新变成一条硬门槛。Reuters 援引 The Information 报道称，Palantir、Nvidia 和 Booz Allen Hamilton 都在调整部分高级 AI 模型的使用方式。Palantir 要求 Anthropic 提供不可撤销的 zero-data-retention 承诺；Nvidia 将 Claude 更多限制在低敏感度任务；Booz Allen 则禁止员工把专有网络安全工作交给 Anthropic 商业模型。背景是 Anthropic 为应对复杂攻击而调整日志留存策略，引发部分企业客户不安。过去企业采购 AI 主要比较能力、价格和延迟，现在“数据是否被保存、保存多久、供应商能否接触”正变成与模型能力同等重要的采购条件，也会直接影响 Agent 能否进入核心系统。",
+      "source_url": "https://www.reuters.com/business/palantir-nvidia-curb-ai-model-use-over-data-fears-information-reports-2026-09-14/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "中国开始把“AI 失控”正式纳入更公开的治理讨论",
+      "summary": "中国监管和安全体系正在更公开讨论高级 AI 的失控、复制与自主资源获取风险，同时强调模型安全评估和人类最终控制。",
+      "body": "全球前沿实验室集中讨论 AI 失控风险之际，中国也在把类似问题从技术圈推向更公开的政策层面。Reuters 9 月 14 日梳理称，中国的 AI 安全框架早已包含模型自主复制、获取资源和逃离人类控制等极端情形，近期相关讨论明显升温。中国国家安全体系也开始公开强调生成式 AI 对国家安全、数据安全和认知空间的潜在威胁，同时继续推动第三方安全评估、Agent 监管以及“人类保持最终控制”的原则。值得注意的是，中国并没有简单照搬美国实验室提出的内部常驻独立监督者方案，而是更强调监管框架、开放权重可审查性和国家层面的治理。AI 安全因此正在从企业自律议题变成中美都必须正面处理的制度问题。",
+      "source_url": "https://www.reuters.com/legal/litigation/how-china-is-preparing-risk-ai-escaping-human-control-2026-09-14/",
+      "estimated_read_minutes": 1
+    },
+    {
+      "title": "Z.AI 再融资约 50 亿美元，六成资金继续砸向模型与算力",
+      "summary": "原智谱 AI 的 Z.AI 计划通过香港配股和可转债筹资约 50 亿美元，其中约 60% 拟用于下一代 GLM、训练、推理和算力基础设施。",
+      "body": "中国大模型公司的资本开支继续扩大。Z.AI，也就是原智谱 AI，披露计划通过香港新股配售和可转换债券合计筹资约 50 亿美元：其中约 21.97 百万股 H 股按每股 714 港元配售，另发行约 201.4 亿元人民币、2027 年到期的零息可转债。按照公司披露，约 60% 的净募集资金计划投入下一代 GLM 基础模型研发、大规模训练、生产推理以及相关计算基础设施；另外约 15% 用于业务扩张、战略投资和潜在并购。与早期“先证明模型能力再融资”不同，中国头部模型公司现在越来越像基础设施公司，需要持续为训练、推理和 Agent 平台准备巨额资本。交易仍有完成条件，因此这些资金尚不能视作全部到账。",
+      "source_url": "https://technode.global/2026/09/14/zai-plans-5-billion-share-bond-financing/",
+      "estimated_read_minutes": 1
+    }
+  ]
+}
