@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Gemini 3.8 Live 把思考与实时语音放进同一条对话",
+    "summary": "Google 的 Gemini 3.8 Live 系列开始进入开发平台，支持实时音频、视觉理解、97 种语言切换，并让扩展思考与语音响应并行进行。",
+    "body": "Gemini 3.8 Live 正从模型发布走向开发者可直接接入的实时应用层。Vercel 9 月 15 日将 Gemini 3.8 Live 与 Extended Thinking 版本接入 AI Gateway，两者都面向语音助手和实时对话。普通版支持实时音频、视觉 grounding、97 种语言自动切换，并能在对话继续时后台调用工具；Extended Thinking 则进一步允许多步推理与说话并行：模型可以先确认请求、持续播报进度，同时在后台完成更长的推理链。相比传统语音助手常见的“听完—等待—回答”串行流程，这种设计把低延迟交互和复杂 Agent 工作放进同一个会话，对语音 Agent、客服和移动端助手尤其值得关注。",
+    "source_url": "https://vercel.com/changelog/gemini-3-8-live-models-now-available-on-ai-gateway",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "AI 编程 Agent 公司 Factory 五个月估值翻逾三倍",
+    "summary": "面向企业工程团队的 Factory 完成 2 亿美元融资，估值升至 50 亿美元，AI Coding 的资本竞争继续从个人助手转向企业级 Agent。",
+    "body": "AI Coding 的融资热度仍在升温。Factory 9 月 15 日宣布完成 2 亿美元融资，估值达到 50 亿美元，相比约五个月前不足 16.7 亿美元的估值增长超过三倍，累计融资已超过 4 亿美元。Factory 的核心产品不是单纯的代码补全，而是面向企业工程团队的 Droids：让 Agent 接手代码库研究、功能开发、测试和其他较长的软件任务。公司强调模型无关路线，希望企业能在不同底层模型之间切换，而不把工程流程绑定到单一实验室。新资金将继续投入研发、产品和全球市场。这个融资也说明，AI Coding 的商业竞争正从“哪个模型写代码最好”转向谁能成为企业软件生产流程的 Agent 层。",
+    "source_url": "https://www.reuters.com/business/ai-coding-agent-startup-factory-triples-valuation-5-billion-latest-funding-round-2026-09-15/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "OpenAI、Anthropic 与 Google 开始讨论共同 AI 安全标准",
+    "summary": "三家最主要的前沿模型实验室已持续数周讨论 AI 安全合作，并探索建立行业标准机制，把近期的“放慢竞赛”争论推进到协调行动。",
+    "body": "前沿模型公司之间罕见的安全协调正在成形。OpenAI 全球政策负责人 Chris Lehane 9 月 15 日确认，OpenAI 已与 Anthropic、Google DeepMind 就 AI 安全合作讨论数周，议题包括如何建立更共同的行业标准。此前 Anthropic CEO Dario Amodei 呼吁实验室在重大安全风险上协调行动，Google DeepMind 的 Demis Hassabis 也提出行业标准机构的方向。当前讨论仍处于形成阶段，尚没有最终章程、治理结构或统一测试规则，因此不能把它理解成已经成立的新监管机构。真正值得观察的是竞争最激烈的三家实验室开始承认：前沿模型的评估、发布门槛和灾难性风险可能需要跨公司的共同规则，而不再完全依靠各自内部政策。",
+    "source_url": "https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "豆包手机给 GUI Agent 加了一套应用自主授权协议",
+    "summary": "豆包手机助手推出 SAEP 屏幕自动化协议，第三方 App 可以允许、拒绝或细分限制 AI 的截图、模拟输入和内容修改等操作。",
+    "body": "手机 Agent 最棘手的问题之一不是模型会不会点按钮，而是谁有权允许它点。豆包手机助手消费者版在 9 月 16 日随努比亚 NaviX Ultra 开售前，公布了 SAEP（Screen Automation Execution Protocol）屏幕自动化操作声明协议，并进入 30 天规则公示。第三方应用可以自主决定是否允许豆包的 GUI Agent 在应用内执行自动操作，也可以把权限拆得更细，例如单独禁止截图、模拟输入或内容修改。第一代技术预览版曾因为部分 App 阻止自动操作遭遇明显的“生态墙”，这次方案等于把原本模糊的对抗关系变成显式协议。若能形成生态，它提供了一种值得观察的移动端 Agent 权限模型：不是助手默认接管屏幕，而是由 App 声明可自动化的边界。",
+    "source_url": "https://www.bjnews.com.cn/detail/1789467395129839.html",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "中文互联网基础语料 4.0 发布，开放 120GB 训练数据",
+    "summary": "中文互联网基础语料 4.0 在国家网络安全宣传周发布，规模达到 120GB，并上线公共语料平台，为中文模型训练与评测补充基础数据。",
+    "body": "大模型竞争除了算力和架构，也越来越取决于可合法使用、经过治理的数据。9 月 15 日，在 2026 年国家网络安全宣传周人工智能安全治理分论坛上，中文互联网基础语料 4.0 正式发布，并在中文互联网语料资源平台上线，公开规模达到 120GB。基础语料的价值并不在于直接替代大型模型公司的私有训练集，而是提供更规范、可复用的中文数据底座，可用于模型训练、微调、评测以及研究。中文模型长期面对高质量公开语料相对英语不足的问题，因此公共语料平台持续扩容，会影响开源模型、学术机构和中小团队获得训练数据的门槛。后续更值得关注的是具体数据构成、许可范围、清洗标准和版本更新机制。",
+    "source_url": "https://finance.sina.cn/stock/jdts/2026-09-15/detail-inirxtrn6793795.d.html",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "欧洲 AI 芯片公司 Axelera 推出第二代 Europa 架构",
+    "summary": "荷兰 Axelera AI 推出面向企业推理的第二代 Europa 芯片，并拿下 AI Factory 供应合同，欧洲继续尝试建立 Nvidia 之外的本土算力路线。",
+    "body": "欧洲本土 AI 芯片路线出现新的落地节点。荷兰 Axelera AI 9 月 15 日发布第二代 Europa 芯片，并披露已获得多个 AI Factory 供应合同。与第一代 Metis 更偏边缘推理不同，Europa 开始面向企业级 AI 工作负载，并计划进入 Dell 与 Supermicro 的产品体系。Axelera 表示目前已有超过 600 家客户使用其芯片，已签合同价值达到数千万美元，潜在销售机会最高约 15 亿美元。公司同时参与意大利 IT4LIA、卢森堡 MeluXina 等欧盟支持的 AI 基础设施项目。Nvidia 在训练和推理市场仍拥有巨大优势，但欧洲正在用 AI Factory、区域算力项目和本土芯片公司组合出另一条供应链；Europa 能否从项目订单走向规模部署，会是下一阶段关键。",
+    "source_url": "https://www.reuters.com/business/european-chip-startup-axelera-wins-ai-factory-supply-deals-launches-second-chip-2026-09-15/",
+    "estimated_read_minutes": 1
+  }
+]
