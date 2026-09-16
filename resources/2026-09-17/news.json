@@ -1,0 +1,44 @@
+[
+  {
+    "title": "OpenAI 把赞助智能体正式塞进 ChatGPT 广告链路",
+    "summary": "OpenAI 开始测试 Sponsored Agents，用户点击广告后可直接与商家智能体对话，同时扩展 Ads Manager、HubSpot 与 Shopify 等商业工具。",
+    "body": "ChatGPT 的广告商业化开始从展示位走向可交互 Agent。OpenAI 9 月 16 日宣布测试 Sponsored Agents：部分美国广告主可以让用户点击广告后，直接进入由品牌赞助的对话智能体，再按需要跳转商家网站。OpenAI 表示这类智能体会明确标识赞助关系，并与 ChatGPT 原本的回答及当前对话保持区隔。与此同时，Ads Manager 增加自然语言投放工具，并接入 HubSpot 与 Shopify 等商业系统。相比传统搜索广告把用户送往网页，这种模式试图让“咨询—筛选—转化”直接发生在对话里，也意味着 ChatGPT 正把 Agent 本身变成一种可计费的广告单元。",
+    "source_url": "https://www.reuters.com/business/media-telecom/openai-tests-advertiser-sponsored-agents-expands-ai-tools-chatgpt-ads-2026-09-16/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "Cohere 与 Aleph Alpha 敲定跨大西洋主权 AI 合并",
+    "summary": "加拿大 Cohere 与德国 Aleph Alpha 签署最终合并协议，新公司沿用 Cohere 品牌并设多伦多、柏林双总部，交易仍待监管批准。",
+    "body": "今年 4 月公布意向后，Cohere 与 Aleph Alpha 在 9 月 16 日正式签署最终业务合并协议。合并后的公司继续使用 Cohere 品牌，在多伦多和柏林设双总部，Aleph Alpha 的海德堡办公室保留为研究中心，员工规模将超过 1000 人；Aleph Alpha 联席 CEO Ilhan Scheer 将出任 Cohere COO。双方把核心卖点放在“主权 AI”：模型和 Agent 能部署在客户自己的基础设施内，并满足加拿大、德国及欧洲对敏感数据和技术控制的要求。交易仍需最终监管批准。相比单纯追逐通用模型榜单，这次整合更像是在美中大型 AI 平台之外，围绕政府和强监管企业建立第三条基础设施路线。",
+    "source_url": "https://www.reuters.com/legal/transactional/cohere-aleph-alpha-combine-target-enterprise-ai-market-2026-09-16/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "Salesforce 用 AIforce 拆掉 CRM 的固定界面",
+    "summary": "Salesforce 在 Dreamforce 推出 AIforce，让 Claude、Slack 等界面直接调用 CRM 数据、权限和业务逻辑，并用自然语言生成实时工作界面。",
+    "body": "Salesforce 正尝试把 CRM 从一个必须打开的应用，变成任何 AI 界面背后的业务系统。9 月 16 日发布的 AIforce 是新的“live interface”层：Claude、Slack、Lightning 或其他 Agent 可以在既有权限和业务规则下读取 Salesforce 数据、更新记录并触发工作流，用户还可以用自然语言临时生成所需的界面。首批形态包括 Claudeforce、Slackforce 与 Agentforce Coworker；其中 Salesforce in Claude 提供预构建 MCP Server 和 37 项销售技能，Claude Code 侧还有 40 多项开发技能。Salesforce 强调 Zero Data Retention，并沿用现有权限模型。它真正改变的不是 CRM 数据本身，而是企业软件的入口开始从固定菜单转向可组合的 Agent 界面。",
+    "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "GitHub AI Scan 不再要求仓库先启用 CodeQL 默认配置",
+    "summary": "GitHub 放宽 AI Scan 的使用前提，已开启代码扫描的符合条件仓库即使没有 CodeQL default setup，也能在 Pull Request 中运行 AI 漏洞检测。",
+    "body": "GitHub 9 月 16 日降低了 AI Scan 进入实际工程流程的门槛。此前 Pull Request 中的 AI Scan 只有在仓库已经配置 CodeQL default setup 时才会运行；现在只要组织或仓库层面启用了 GitHub code scanning 与 AI Scan，符合条件的仓库即使没有 CodeQL 默认配置，也能获得 AI 驱动的漏洞检测，而且无需新增设置步骤。权限层级仍沿用 repository、organization 和 enterprise 的既有控制。该变化目前处于 public preview，面向 github.com 上个人及组织仓库的 GitHub Advanced Security 客户，GitHub Enterprise Server 暂不支持。变化看似不大，却让 AI 安全审查更接近“打开即可覆盖更多仓库”，减少安全团队逐库补齐 CodeQL 配置的前置工作。",
+    "source_url": "https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "网易有道开源两款低延迟实时同传模型",
+    "summary": "网易有道发布子曰 4-R2T2 流式语音识别与 140 亿参数子曰 4-T3PO 同步翻译模型，目标是把实时同传延迟压到数百毫秒级。",
+    "body": "网易有道在 9 月 16 日 AI Open Day 上开源子曰 4-R2T2 与 4-T3PO，两者都针对流式同传。R2T2 是实时 ASR 模型，有道称平均延迟约 200—600 毫秒，并通过稳定前缀、时间对齐和词元级音频切分等训练方法，在持续输出时维持识别质量。T3PO 则是约 140 亿参数的文本同步翻译模型，支持全流式输出，并允许在低延迟与高质量之间调节模式；它还能接入外部流式 ASR，组成完整的语音实时翻译链路。有道披露其 AI 同传服务累计用户已超过 2500 万。相比只展示端到端语音产品，这次把 ASR 与翻译模型开放出来，更直接面向会议转写、小语种直播和自建语音 Agent 的开发者。",
+    "source_url": "https://tech.ifeng.com/c/8wTO3klKAT7",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "AI Agent 在实验社会里自己长出了难懂的共同方言",
+    "summary": "Emergence 的实验发现，多家模型组成的 Agent 社会会在持续协作中自发形成新词、隐喻与内部表达，交流越多，人类越难直接理解其含义。",
+    "body": "纽约 AI 实验室 Emergence 的一组实验把来自不同公司的自主 Agent 放进模拟社会，让它们持续协作和交流。研究者观察到，这些 Agent 并没有被要求创造新语言，却逐渐形成共享的新词、隐喻和缩略表达，而且互动越频繁，语言越趋向内部化。这里并不能简单推导出模型拥有秘密意图：人类群体同样会为了效率形成行话，模型也可能只是在压缩高频概念。但问题在于可监督性。如果 Agent 之间的通信逐渐脱离普通自然语言，人类即使完整保存日志，也可能越来越难判断一句话在特定群体里的真实语义。相关结果目前更多是实验性观察，而不是现实系统已经失控的证据，却给多 Agent 系统提出了一个很具体的问题：可记录并不等于可理解。",
+    "source_url": "https://www.theguardian.com/technology/2026/sep/15/syd-barrett-ai-chat-language-poetic-tech-bro-jargon-oversight",
+    "estimated_read_minutes": 1
+  }
+]
