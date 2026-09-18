@@ -1,0 +1,37 @@
+[
+  {
+    "title": "千问 3.8 Omni 把音视频理解推进到 Agent 执行层",
+    "summary": "阿里发布 Qwen3.8-Omni-Flash，统一接收文本、图像、音频和视频，提供 100 万 Token 上下文，并把工具调用与推理直接带入多媒体任务。",
+    "body": "阿里千问上线 Qwen3.8-Omni-Flash，定位不再只是“看懂音视频”的多模态模型，而是让音频、视频直接进入 Agent 的规划与执行链。模型统一接收文本、图像、音频和视频，输出文本，上下文窗口达到 100 万 Token，支持 Function Calling、联网搜索、上下文缓存和可调 reasoning effort。音频覆盖 113 种语言与方言，还能解析双声道和四声道空间音频；单次视频文件最长可到 2 小时。相比上一代 Omni 系列，真正值得注意的是产品方向变化：会议、视频制作、内容分析等任务不必先把媒体转成文本，再交给另一个 Agent，而可以由同一个模型理解素材、规划步骤并调用工具完成后续工作。",
+    "source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-8-omni-flash",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "四大 AI 编程 Agent 同曝插件供应链执行漏洞",
+    "summary": "安全研究披露 Plugin4Shell：Claude Code、Codex、GitHub Copilot 与 Gemini CLI 的插件更新链均受到影响，恶意仓库可借更新过程触发代码执行。",
+    "body": "一项被命名为 Plugin4Shell 的供应链漏洞同时击中了 Claude Code、OpenAI Codex、GitHub Copilot 和 Gemini CLI。问题不在模型本身，而在 Agent 获取插件或扩展代码时对“已固定版本”的信任方式：如果攻击者控制插件对应的代码仓库，就可能在用户没有再次确认的情况下替换后续取得的代码，从而让 Agent 在开发环境中执行恶意内容。研究披露时部分产品仍未完全修补，因此这不是传统意义上的提示词注入，而是 AI Coding 生态开始面对的软件供应链问题。随着 Skills、插件和 MCP 工具越来越多，Agent 获得的文件、Shell、密钥与网络权限也越来越大，插件版本不可变性、签名验证和权限隔离正在变成与模型能力同等重要的基础设施。",
+    "source_url": "https://www.helpnetsecurity.com/2026/09/18/plugin4shell-ai-coding-agents-vulnerability/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "OpenAI 用 Astra for Law 正式切入高端法律工作流",
+    "summary": "Astra for Law 将 GPT-6 Astra、专用法律检索索引和法律写作指令组合起来，首批面向美国大型律所，并通过 26 个插件连接既有法律系统。",
+    "body": "OpenAI 推出 Astra for Law，把 GPT-6 Astra 从通用模型配置成面向专业法律工作的完整基础层。核心新增 Legal Search Index，可检索美国判例、法规、法院规则和行政决定，语料覆盖超过 2.3 亿个 URL；在 OpenAI 对 200 道美国法律研究题的测试中，完整配置正确率为 54.0%，GPT-6 Astra 单独使用网页搜索为 38.7%。产品首批通过 Trusted Access 提供给部分美国律所，并将在 API 中以 gpt-6-astra-law 出现。与此同时，OpenAI 发布 26 个合作伙伴插件连接 iManage、Relativity、Clio、Intapp 等法律系统。它代表的变化不是再造一个“法律聊天机器人”，而是把模型、专业检索、权限控制和律所内部工作流绑成行业专用 Agent 平台。",
+    "source_url": "https://openai.com/index/astra-for-law/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "Google 把个人 AI Agent CC 改造成家庭共享成员",
+    "summary": "Google Labs 扩展实验性 Agent CC，让最多六名家庭成员共享信息、日历和任务，并给 Agent 独立账号与权限边界，用于处理家庭日常事务。",
+    "body": "Google Labs 正把 CC 从个人 Daily Brief 进一步改造成家庭共享 Agent。一个家庭最多可加入六名成员，每个人单独决定把哪些邮件、活动和资料交给 CC；Agent 本身拥有独立 Google 账号，而不是直接获得某个家庭成员邮箱的全部权限。它可以从学校通知、运动安排或预约邮件中提取日期，自动整理共享日历和任务，还能预填报名 PDF、制作采购清单、规划餐食并生成 Docs 或 Sheets。CC 运行在隔离的云端计算环境，由 Gemini 与 Google 的 Antigravity Agent 框架驱动，向组外发送内容仍需确认。目前实验仅面向美国 18 岁以上个人 Google 账号。这里最有意思的是权限模型：长期 Agent 开始拥有独立身份、共享记忆和明确的数据授权边界，而不只是附着在某个用户账号上的助手。",
+    "source_url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/cc-expanding-to-groups/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "Claude 与 GPT-5.6 被用于攻入 OpenAI 员工系统",
+    "summary": "安全团队在 OpenAI 漏洞赏金计划中借 Claude 与 GPT-5.6 Sol 完成一次授权渗透，最终进入员工相关系统并证明 AI 已明显降低复杂攻击链的执行门槛。",
+    "body": "安全创业公司 Hacktron AI 在 OpenAI 授权的漏洞赏金测试中，用 Anthropic Claude 与 OpenAI 自家的 GPT-5.6 Sol 辅助完成了一条真实攻击链。研究人员先通过员工使用的 Discourse 论坛取得 ChatGPT 员工账号相关访问，再利用获得的权限触及 GitHub 工作流程，并以一次无害代码修改证明影响范围；团队称只查看、没有下载敏感代码。OpenAI 随后修复相关漏洞，并支付 6500 美元赏金。事件本身不是“AI 自主黑掉 OpenAI”，人类研究人员仍在控制测试，但它提供了一个更实际的信号：模型正在把信息搜集、漏洞分析、脚本编写和跨系统操作串成更低成本的渗透流程。安全团队面对的变化，可能首先不是新型漏洞，而是既有攻击链被显著压缩时间和人力。",
+    "source_url": "https://www.theguardian.com/technology/2026/sep/18/openai-hacked-anthropic-claude-chatbot",
+    "estimated_read_minutes": 1
+  }
+]
