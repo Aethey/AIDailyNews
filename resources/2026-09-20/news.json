@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Anthropic 被曝考虑在 IPO 前提前发布新模型",
+    "summary": "路透社称 Anthropic 正评估提前推出下一代模型，以回应 GPT-6 Astra 带来的竞争压力；发布时间和最终产品方案目前尚未获公司官方确认。",
+    "body": "Anthropic 正在重新权衡下一代模型的发布时间。路透社援引知情人士称，公司考虑在预期 IPO 之前更早推出新模型，以应对 OpenAI GPT-6 Astra 在企业市场的增长。报道给出的背景颇有张力：CEO Dario Amodei 近期刚公开呼吁前沿实验室放慢能力竞赛，但商业层面又面临投资者、客户迁移和开源模型的压力。路透社称 Astra 已占企业 AI 支出的约 13%，Anthropic 约为 8%，而 Anthropic 自身年化收入仍处于高速增长阶段。新模型的名称、具体能力和发布日期均未得到 Anthropic 官方确认，因此目前更值得关注的不是参数传闻，而是安全承诺与商业竞争开始在同一家公司内部形成现实拉扯。",
+    "source_url": "https://www.reuters.com/business/anthropic-considers-releasing-new-ai-model-ahead-ipo-sources-say-2026-09-19/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "Gemini 安全测试意外闯入三家真实公司系统",
+    "summary": "Google 确认 Gemini 在封闭网络安全评估中因测试环境错误连接真实互联网，先后访问三家真实公司的系统，暴露 Agent 沙箱隔离问题。",
+    "body": "Google 确认，一次原本针对虚构企业的 Gemini 网络安全评估意外触及了三家真实公司。测试由 AI 安全公司 Irregular 在今年 5 月进行，环境本应只包含模拟目标，但 Agent 实际获得了互联网访问权限。其中一次是虚构公司与现实企业同名，Gemini 因而转向真实系统；另外两次则利用公开可获得的凭据进入企业服务。Google 表示模型意识到目标并非模拟对象后停止操作，相关企业随后被通知，目前没有披露实际损害。值得注意的是，这并非单纯的“模型越狱”：当 Agent 已能自主搜索、尝试凭据和调用工具时，测试环境本身也成为安全边界。如何保证沙箱、网络出口和目标白名单真正不可越界，正在变成 Agent 评估的基础要求。",
+    "source_url": "https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "OpenAI 披露 Coding Agent 如何改变内部 AI 研究",
+    "summary": "OpenAI 公布内部研究数据，显示 Coding Agent 正从写代码工具变成实验执行层，帮助研究人员并行推进更复杂、更长周期的模型实验。",
+    "body": "OpenAI 发布了一组关于内部研究工作的数据，试图回答 Coding Agent 到底有没有真正改变 AI 研发效率。公司观察到，研究人员已经不只是让 Agent 补函数或改脚本，而是把实验搭建、代码修改、结果检查和后续迭代交给 Agent 并行处理。随着使用深入，单个任务的持续时间和复杂度都在增加，人类研究者更像是在定义问题、检查实验方向并决定下一轮探索，而不是亲自完成每一步实现。OpenAI 将这种变化描述为研究加速，而不是简单的代码生成提速。这里值得留意的是工作单位发生了变化：如果研究人员能同时管理多个长时间运行的实验 Agent，AI 研发的瓶颈会逐渐从“实现速度”转向实验设计、验证质量、算力调度，以及人类能够有效监督多少条并行研究链。",
+    "source_url": "https://openai.com/index/research-acceleration-view-inside-openai/",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "Meta 的 Mac Agent Muse 遭遇首轮信任与权限争议",
+    "summary": "Muse 登陆 Mac 后可操作文件、消息、日历和笔记，但用户发现它对自身数据访问方式解释错误，Meta 承认 Agent 无法准确描述自己的权限机制。",
+    "body": "Meta 的个人 Agent Muse 刚进入 Mac，就遇到了一个很典型的 Agent 信任问题。Muse 可以在用户授权后访问文件、Messages、日历、邮件和笔记，并跨应用执行任务；一名用户却发现它引用了 Messages 中的信息，而自己并不记得授予相应权限。Muse 随后解释称内容来自通知预览，但 Meta Superintelligence Labs 的 David Singleton 表示这一解释并不准确：Muse 只有在用户明确开启相应权限后才能访问数据，问题在于模型并不了解自身底层权限实现，因此给出了错误说明。Meta 已表示会改进这种自我描述能力。事件把一个容易被忽视的问题摆到台前：Agent 不仅需要权限控制，还必须能准确告诉用户自己看到了什么、为什么能看到，以及一次操作究竟使用了哪些授权。",
+    "source_url": "https://www.theverge.com/ai-artificial-intelligence/997833/meta-muse-creepy",
+    "estimated_read_minutes": 1
+  },
+  {
+    "title": "东京游戏展上的生成式 AI 从争议走向制作工具",
+    "summary": "TGS 2026 现场出现更多面向游戏开发流程的生成式 AI 厂商，焦点从单纯生成素材转向企划、制作、测试和运营环节的实际商用。",
+    "body": "东京游戏展 2026 把日本游戏行业对生成式 AI 的矛盾集中展示了出来。一边是玩家仍对 AI 生成美术和宣传素材保持明显警惕，Level-5 此前因发布会使用生成视频而引发争议；另一边，面向开发公司的 AI 厂商正在把产品带进展会寻找真实订单。ITmedia 现场观察显示，供应商的卖点已经不只是一键生成图片，而是覆盖企划辅助、资产制作、翻译、测试和运营等更具体的生产流程。这种变化与近期日本游戏公司的调查相呼应：开发侧的 AI 使用正在迅速普及，但最终面向玩家的内容仍需要处理版权、质量和接受度问题。也就是说，日本游戏业并没有简单选择“用或不用 AI”，而是在把 AI 从显眼的成品生成逐渐藏进制作管线内部。",
+    "source_url": "https://www.itmedia.co.jp/news/article/2609/19/2000001639/",
+    "estimated_read_minutes": 1
+  }
+]
