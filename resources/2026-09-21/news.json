@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Jev 不再写答案，只给软件做判断",
+    "summary": "TypeSafe AI 推出首个 System One 模型 Jev，把生成文本换成选择、评分和概率输出，试图成为 Agent 工作流里的低延迟判断层。",
+    "body": "TypeSafe AI 9 月 15 日发布 Jev，方向和主流聊天模型几乎相反：它不负责写文章或聊天，而是接收程序状态和预定义问题，直接返回 Choice、Score 或概率等结构化判断。公司称 Jev 采用新的并行采样架构和 RLCD 训练方法，端到端延迟约 70～500 毫秒，输入价格为每百万 token 0.042 美元，发布时输出不计费。它已经进入 OpenRouter 等渠道。真正值得注意的不是又多了一个模型，而是模型接口开始分化：复杂推理仍交给大型 LLM，路由、排序、风控、工具选择等高频决策则可能交给更便宜、更快、输出类型固定的专用模型。不过目前主要性能数据仍来自厂商自身，独立评测还很有限。",
+    "source_url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "Anthropic 把 AI 生物研究推进真实湿实验室",
+    "summary": "Anthropic 已在旧金山湾区建立湿实验室，让模型提出的生物实验方案进入真实物理验证，AI for Science 从电脑模拟进一步走向实验闭环。",
+    "body": "Anthropic 的生命科学布局正在从模型和软件进入真实实验。路透社 9 月 18 日报道，公司已在旧金山湾区建立湿实验室，生命科学负责人 Eric Kauderer-Abrams 确认这一设施存在。所谓湿实验室并非单纯跑模拟，而是能进行真实生物实验，让模型提出假设、设计方案，再通过物理实验获得结果并反馈。此前 Anthropic 已推出 Life Sciences Verification Program，允许经过验证的专业团队在药物发现、研究生物学、临床开发和制造等场景使用限制更宽松的模型。两件事放在一起看，AI for Science 正从“模型帮助研究人员读论文和写代码”，向模型—实验—数据反馈的闭环推进；与此同时，生物能力越接近真实实验，访问控制和安全验证也会变得更关键。",
+    "source_url": "https://www.reuters.com/world/anthropic-quietly-sets-up-biology-lab-it-ramps-ai-drug-program-2026-09-18/",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "中国机器人公司押注 2027 年迎来“ChatGPT 时刻”",
+    "summary": "Spirit AI 认为机器人“大脑”最快明年出现关键突破，目标是让人形机器人仅凭自然语言完成更多通用任务，而不是依赖固定动作脚本。",
+    "body": "中国具身智能公司 Spirit AI 联合创始人高阳预计，机器人“大脑”最快在 2027 年中出现类似 ChatGPT 的能力跃迁：人形机器人能够理解自然语言指令，并完成更多此前没有逐项编程的任务。公司目前在结构化环境的简单任务上称成功率约 90%，并雇用约 1000 名承包人员采集真实世界操作数据，而不是主要依赖模拟器训练。其 Moz1 人形机器人已有数十台进入宁德时代、京东等生产场景。Spirit AI 自 2024 年成立以来累计融资超过 6.7 亿美元，估值约 29 亿美元。高阳同时把家庭机器人时间表放得更远，因为家庭环境变化大、训练数据难获取；这也说明当前机器人瓶颈正在从“能不能走和抓”逐渐转向泛化决策能力。",
+    "source_url": "https://www.reuters.com/world/asia-pacific/founder-chinese-startup-spirit-ai-says-robot-brains-set-2027-breakthrough-2026-09-18/",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "Unity 正式把 Claude Code 与 Codex 接进编辑器",
+    "summary": "Unity 为 Claude Code 和 Codex 推出官方插件，把工程技能、Unity CLI 与编辑器控制直接交给 Coding Agent，游戏开发开始形成原生 Agent 工具链。",
+    "body": "Unity 已先后为 Claude Code 和 OpenAI Codex 发布第一方插件。它们不是简单补一份文档，而是把 Unity 工程师编写的 Skills、Unity CLI，以及用于实时 Editor 控制的能力直接交给 Coding Agent。以 Codex 插件为例，Agent 可以先检查项目环境，调用当前 API 修改工程，再验证结果后交付，而不是依赖训练数据里可能已经过期的 Unity 用法。Claude Code 版本还结合 Unity MCP Server，让 Agent 能直接操作编辑器。这个变化代表游戏引擎开始主动适配“Agent 是开发入口”的工作方式：过去开发者先打开 IDE 和引擎，再让 AI 辅助某一步；现在 Agent 可以成为入口，由引擎官方提供可执行的工具、知识和边界。对复杂 GUI 开发工具来说，这种第一方 Agent 接口可能比单纯聊天助手更重要。",
+    "source_url": "https://unity.com/blog/unity-plugin-codex",
+    "estimated_read_minutes": 2
+  }
+]
