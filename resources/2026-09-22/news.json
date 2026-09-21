@@ -1,0 +1,30 @@
+[
+  {
+    "title": "OpenAI提出下一阶段AI标准框架",
+    "summary": "OpenAI提出面向更强AI系统的新标准方向，把自动化AI研究、对齐、人类参与自我改进循环与社会部署放进同一治理框架。",
+    "body": "OpenAI在9月21日发布的新文章中，把下一阶段AI治理的重点从单纯评测模型能力，进一步推向“如何管理持续自我改进的系统”。公司列出三项目标：构建自动化AI研究员并用它推进对齐研究、让高智能系统产生的科学与经济收益更广泛落地，以及发展个人AGI。一个关键变化是，人类是否仍能留在AI自我改进循环中，被明确写进核心问题。OpenAI同时提到AI辅助研究已经进入数学等领域，并以Navier–Stokes千禧年问题相关进展为例。文章没有给出一套已经完成的监管规则，更像是在能力继续上升前，公开定义接下来需要共同建立的技术与制度标准。",
+    "source_url": "https://openai.com/index/building-standards-next-phase-ai/",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "Anthropic想给前沿AI实验室装上速度表",
+    "summary": "Anthropic提出一组衡量前沿实验室AI研发速度的指标，希望外界能观察AI究竟以多快速度参与并加速下一代AI开发。",
+    "body": "Anthropic认为，公众目前能看到模型发布，却很难看到前沿实验室内部的研发速度正在怎样变化。9月21日，Anthropic Institute提出新的测量框架，核心不是再做一个模型排行榜，而是观察AI对AI研发本身的加速程度。随着Coding Agent、自动实验和研究助手逐渐进入模型训练流程，仅统计参数、算力或发布间隔已经不足以描述进展速度。新的思路试图记录研究任务被AI完成的比例、研发周期变化，以及模型对下一代模型开发产生的实际贡献。这类指标如果被多家实验室采用，未来讨论“AI是否正在加速自身发展”时，就可能第一次拥有可连续比较的数据，而不只是依赖公司发布会和零散案例。",
+    "source_url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "Grok 4.7进入GitHub Copilot全平台",
+    "summary": "GitHub开始把xAI最新Grok 4.7加入Copilot，覆盖编辑器、CLI与云端Agent，并按模型提供商原价进行用量计费。",
+    "body": "GitHub在9月21日宣布，Grok 4.7开始逐步进入Copilot模型选择器。它面向Agent式编程和复杂多步骤任务，支持Copilot Pro、Pro+、Max、Business与Enterprise。覆盖范围不只VS Code，还包括Visual Studio、JetBrains、Xcode、Eclipse、Copilot CLI、GitHub Copilot App以及云端Agent。这意味着同一个模型可以贯穿本地编辑、命令行和云端执行环境。与部分套餐内模型不同，Grok 4.7按照提供商的列表价格采用usage-based billing。企业管理员也可以通过Copilot的模型策略单独控制访问。GitHub正在把Copilot从固定模型助手变成多模型Agent入口，而模型价格与企业权限因此开始成为开发体验的一部分。",
+    "source_url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot/",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "Anthropic披露Claude滥用与模型蒸馏攻防",
+    "summary": "Anthropic最新威胁报告披露Claude被用于网络攻击、电子战软件开发及未授权模型蒸馏，并公开其识别和阻断方式。",
+    "body": "Anthropic最新一期威胁情报报告展示了Agent能力增强后的另一面：攻击者不一定直接要求模型完成恶意任务，而会把工程拆成多个看似正常的小步骤。报告称，一起针对伊朗用户的行动利用Claude开发钓鱼页面、凭据窃取界面和Windows组件；另一起案例中，一个中国相关行为者让Claude协助迭代约16个电子战软件模块。Anthropic还把未授权模型蒸馏列为重点风险，称其发现多个实验室通过代理账户获取Claude输出，并据此强化了推理摘要、preserved thinking、身份验证和异常账户识别。报告中的归因与规模数字来自Anthropic自身调查，外界目前无法独立验证全部细节，但它清楚显示模型安全正在从“拒绝危险提示”扩展到跨会话、账户和流量层面的持续防御。",
+    "source_url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+    "estimated_read_minutes": 2
+  }
+]
