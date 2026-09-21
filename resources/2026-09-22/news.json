@@ -21,10 +21,10 @@
     "estimated_read_minutes": 2
   },
   {
-    "title": "Anthropic披露Claude滥用与模型蒸馏攻防",
-    "summary": "Anthropic最新威胁报告披露Claude被用于网络攻击、电子战软件开发及未授权模型蒸馏，并公开其识别和阻断方式。",
-    "body": "Anthropic最新一期威胁情报报告展示了Agent能力增强后的另一面：攻击者不一定直接要求模型完成恶意任务，而会把工程拆成多个看似正常的小步骤。报告称，一起针对伊朗用户的行动利用Claude开发钓鱼页面、凭据窃取界面和Windows组件；另一起案例中，一个中国相关行为者让Claude协助迭代约16个电子战软件模块。Anthropic还把未授权模型蒸馏列为重点风险，称其发现多个实验室通过代理账户获取Claude输出，并据此强化了推理摘要、preserved thinking、身份验证和异常账户识别。报告中的归因与规模数字来自Anthropic自身调查，外界目前无法独立验证全部细节，但它清楚显示模型安全正在从“拒绝危险提示”扩展到跨会话、账户和流量层面的持续防御。",
-    "source_url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+    "title": "OpenAI为AI数学成果建立独立顾问组",
+    "summary": "OpenAI成立数学与人工智能独立顾问组，重点审视AI数学成果应如何验证、同行评议与对外沟通，回应能力快速提升后的可信度问题。",
+    "body": "随着AI开始声称解决越来越复杂的数学问题，真正困难的环节已经不只是“模型能否给出答案”，而是研究共同体如何判断答案是否成立。OpenAI在9月21日宣布成立独立的数学与人工智能顾问组，参与者将围绕AI生成数学成果的审查、验证和沟通方式提供建议。这个动作出现在AI数学能力明显加速之后：模型已经从竞赛题进入开放研究问题，传统benchmark分数很难覆盖新结果的原创性、证明完整性和学术归属。顾问组本身不会替代同行评议，也不意味着OpenAI发布的数学结论自动获得认可；它更像是在建立一套外部校验机制，让实验室在宣布重大数学突破之前，有更清晰的验证与披露路径。",
+    "source_url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
     "estimated_read_minutes": 2
   }
 ]
