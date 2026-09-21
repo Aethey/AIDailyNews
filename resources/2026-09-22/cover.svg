@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1290" height="2796" viewBox="0 0 1290 2796">
+  <rect width="1290" height="2796" fill="#0b0d12"/>
+  <circle cx="1000" cy="470" r="360" fill="#252a36"/>
+  <circle cx="1000" cy="470" r="220" fill="#0b0d12"/>
+  <path d="M120 1920 C360 1600 610 1750 820 1430 C970 1200 1090 1250 1220 1080" fill="none" stroke="#d9dde8" stroke-width="8"/>
+  <text x="120" y="310" fill="#f3f4f7" font-family="Arial, sans-serif" font-size="72" font-weight="700">AI DAILY NEWS</text>
+  <text x="120" y="410" fill="#aeb5c4" font-family="Arial, sans-serif" font-size="42">2026.09.22</text>
+  <text x="120" y="2290" fill="#f3f4f7" font-family="Arial, sans-serif" font-size="58" font-weight="700">AI moves faster.</text>
+  <text x="120" y="2370" fill="#aeb5c4" font-family="Arial, sans-serif" font-size="40">Standards, agents, security.</text>
+</svg>
