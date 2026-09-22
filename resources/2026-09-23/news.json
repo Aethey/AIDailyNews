@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Claude Opus 5.5 把旗舰能力压到更低成本",
+    "summary": "Anthropic 发布 Claude Opus 5.5，在接近更高阶模型能力的同时降低运行成本，并把网络安全防护与外部安全评估放到本次升级的核心位置。",
+    "body": "Anthropic 9 月 22 日推出 Claude Opus 5.5，这是 Claude 5.5 系列首款模型。公司称其在多数工作上可达到更高阶 Fable 5.1 的水平，同时典型工作负载运行成本较 Opus 5 下降约 40%。API 定价为每百万输入 token 4 美元、输出 20 美元，并已通过 Claude 服务及 AWS、Google Cloud、Microsoft Azure 提供。此次升级不只追求能力和价格：Anthropic 在发布前引入 Frontier Design、METR 等外部机构测试，并强化网络安全与生物风险场景的防护。公司内部行为审计还显示，新模型绕过边界的倾向显著降低。对长期运行 Coding Agent 的团队来说，这次变化的重点因此不是单项 benchmark，而是旗舰能力、安全边界与持续运行成本同时重新定价。",
+    "source_url": "https://www.reuters.com/business/anthropic-unveils-claude-opus-55-2026-09-22/",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "阿里发布新 AI 芯片，并瞄准万亿级模型扩张",
+    "summary": "阿里在年度大会公布新一代真武 V900 AI 芯片，并披露下一代 Qwen 将向 5 万亿至 10 万亿参数规模推进，算力与模型路线进一步绑定。",
+    "body": "阿里巴巴在杭州年度旗舰大会上公布真武 V900 AI 芯片，并同步披露下一阶段大模型训练计划。CEO 吴泳铭称，V900 的性能约为上一代真武 M890 的三倍，并将用于阿里数据中心及云端训练、推理工作负载。更值得注意的是模型路线：阿里计划把下一代模型训练规模推向 5 万亿至 10 万亿参数，而当前 Qwen3.8-Max 为 2.4 万亿参数。这意味着阿里的竞争方式正在从单独发布模型，进一步变成自研芯片、云基础设施与 Qwen 模型共同演进。中国厂商过去更多受制于高端 GPU 供给，如今自有加速器是否能支撑更大规模训练，将直接影响后续模型迭代速度、推理成本以及云端商业化能力。",
+    "source_url": "https://www.washingtonpost.com/business/2026/09/22/alibaba-ai-chip-qwen-zhenwu-china-us/fbaa68ec-b655-11f1-94cb-d3d8f22a8c8b_story.html",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "中国电信把 Agent 模型压进单张消费级显卡",
+    "summary": "中国电信发布 Xing4.0-29B-A4B，以 29B 总参数、4B 激活参数和约 15GB 显存需求，把完整 Agent 工作流带到单 GPU 本地部署。",
+    "body": "中国电信 AI 正式发布 Xing4.0-29B-A4B，一条很明确的路线是：不再用更大的参数规模换 Agent 能力，而是尽量把执行能力塞进本地硬件。模型采用 MoE 架构，总参数 290 亿、每个 token 仅激活 40 亿参数，支持 256K 上下文，并可进行多步任务规划、工具调用、代码执行和结构化输出。通过低比特量化与显存优化，其运行显存需求约 15GB，意味着一张消费级 GPU 就能部署。官方公布的 SWE-bench Verified 得分为 75.0，并称模型已用于中国电信客服等生产环境。它同时在 GitHub 与 Hugging Face 开放，适配主流推理与 Agent 框架。相比单纯追逐旗舰 benchmark，这类小型执行模型更直接瞄准企业私有部署、桌面 Agent 与数据不出本地的实际需求。",
+    "source_url": "https://www.globenewswire.com/news-release/2026/09/22/3365958/0/en/china-telecom-ai-officially-releases-xing4-0-29b-agentic-large-model-for-single-gpu-deployment.html",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "微软端掉把 AI 嵌入诈骗全流程的 EvilTokens",
+    "summary": "微软数字犯罪部门打击 EvilTokens 平台：其 AI 不只生成钓鱼文案，还分析受害者邮箱、关系与付款权限，自动规划更有效的诈骗路径。",
+    "body": "微软数字犯罪部门 9 月 22 日披露对 EvilTokens 的打击行动。这个网络犯罪平台值得注意的地方，在于 AI 已经不是传统诈骗里的“文案生成器”。其聊天机器人能够读取被攻陷邮箱中的内容，分析受害者与联系人之间的信任关系、付款授权和敏感职责，再建议攻击者应该冒充谁、选择什么时间和策略，以及怎样设计后续消息以提高转账或欺诈成功率。也就是说，AI 开始参与目标选择、关系建模和攻击路径规划，而不是只负责最后一步写邮件。微软称平台覆盖从账户入侵到金融诈骗的多个环节。这类案例让企业邮件安全面对的新问题从“AI 生成内容能否识别”，进一步转向 Agent 是否能够把大量零散信息自动组合成可执行攻击计划。",
+    "source_url": "https://blogs.microsoft.com/on-the-issues/2026/09/22/disrupting-eviltokens-the-ai-chatbot-built-for-cybercrime/",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "Palo Alto 用多种前沿模型持续扫描企业攻击面",
+    "summary": "Palo Alto Networks 推出持续式 AI 防御服务，同时调用 Claude、GPT 与开放模型，对 Web、API 和云基础设施主动寻找漏洞并给出修复路径。",
+    "body": "Palo Alto Networks 9 月 22 日推出 Unit 42 Continuous Frontier AI Defense，把前沿模型从安全助手进一步放进持续攻击面测试。服务会组合 Anthropic Claude Mythos 5、OpenAI GPT-5.6-Cyber 以及开放权重模型，对企业 Web 应用、API 和云基础设施持续寻找漏洞与可利用路径。发现问题后，系统不仅生成风险说明，还可以提供代码级修复建议和虚拟补丁方案。与传统周期性渗透测试相比，这套模式试图让 AI 攻击模拟长期运行，并通过多模型覆盖不同能力边界。产品以年度订阅形式全球提供，费用根据客户选择的模型组合确定。随着模型本身越来越擅长自主发现和利用漏洞，安全厂商正在把同一类能力反向用于防御，攻防双方因此开始共享越来越相似的 Agent 技术栈。",
+    "source_url": "https://www.reuters.com/technology/palo-alto-networks-unveils-ai-powered-cybersecurity-service-using-claude-gpt-2026-09-22/",
+    "estimated_read_minutes": 2
+  }
+]
