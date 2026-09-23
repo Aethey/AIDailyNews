@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Claude 在真实实验室发现类 CRISPR 新酶系统",
+    "summary": "Anthropic 建立生命科学研究组与实验室，让 Claude 从 DNA 数据提出假设并进入湿实验验证，首批成果发现一种具有类 CRISPR 重复结构的新型酶系统。",
+    "body": "Anthropic 9 月 23 日公布新的生命科学研究组与实验室，尝试把 Claude 从论文阅读和生物信息分析工具，推进到能够参与真实发现闭环的研究系统。团队让 Claude 大规模浏览 DNA 数据、寻找尚未表征的蛋白家族并生成可实验验证的假设，再由科学家在湿实验室测试。首批结果中，Claude 在仅接受高层方向指导的情况下识别出一种此前未描述的酶系统，其结构表现出类似 CRISPR 的重复特征。与常见的“AI 辅助整理文献”不同，这项工作把模型输出直接接到了实验环节；Anthropic 也强调结果仍需通过传统科学方法验证。它提供了一个值得观察的新范式：AI for Science 的竞争开始从模型会不会回答专业问题，转向模型能否提出新假设，并在现实实验中经得住检验。",
+    "source_url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "Gemini 一口气接入更多生产力与创作应用",
+    "summary": "Google 扩展 Gemini Connected Apps，新增 Linear、Airtable、Adobe、Webflow 等服务，让聊天窗口进一步成为跨应用执行任务的统一入口。",
+    "body": "Google 9 月 23 日开始为 Gemini 推送新一轮 Connected Apps，把可直接调用的第三方服务从 Google 自家生态扩展到更广的工作和生活工具。生产力侧新增 Airtable、Linear、monday.com、PandaDoc、Wispr AI 和 Zoho；创作侧覆盖 Adobe、Picsart、Squarespace 与 Webflow；生活类则加入 Experian、Peloton、SeatGeek 等。用户可以在设置中连接服务，也能在对话里通过 @ 提及应用或直接描述任务。相比早期 AI 助手主要负责生成文本，这次变化更像是在搭建统一的任务入口：模型理解意图后，把操作分发给实际承载数据和动作的 SaaS。真正需要继续观察的是各服务开放的操作深度、授权粒度，以及多应用连续任务能否稳定执行。",
+    "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini/",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "微软将在海湾追加逾百亿美元 AI 与云投资",
+    "summary": "微软计划未来数年在阿联酋等海湾市场投入超过 100 亿美元，重点扩建 AI 与云基础设施，同时把能源、水资源和供应链韧性纳入数据中心规划。",
+    "body": "微软 9 月 23 日披露，计划在阿联酋及更广泛海湾地区投入超过 100 亿美元，继续扩张云和 AI 基础设施。与单纯增加 GPU 和数据中心容量不同，公司此次把“韧性”放到投资叙事中心，包括电力、水资源、供应链以及当地人才体系。海湾国家正在利用资本和能源优势争夺全球 AI 算力节点，微软此前也已在当地推进数据中心和合作项目。新一轮投资说明前沿 AI 的竞争越来越依赖模型之外的物理基础设施：算力能否长期获得稳定能源、冷却和网络资源，正在直接影响云厂商可以提供多少训练与推理容量。对全球 AI 版图而言，中东也正从资金提供方进一步变成实际承载计算基础设施的地区。",
+    "source_url": "https://www.reuters.com/business/retail-consumer/microsoft-plans-10-billion-plus-gulf-investment-with-focus-resilience-2026-09-23/",
+    "estimated_read_minutes": 2
+  },
+  {
+    "title": "GitHub 给 Copilot Agent 接上企业级执行追踪",
+    "summary": "GitHub Copilot App 新增 OpenTelemetry 支持，企业可以把 Agent 的模型请求、工具调用与执行步骤送进现有监控系统，排查异常行为。",
+    "body": "GitHub 为 Copilot App 加入 OpenTelemetry 配置，让企业第一次能以现有可观测性体系系统追踪 Agent 的执行过程。管理员可通过 enterprise-managed settings 设置遥测出口，把 Agent 会话中的模型请求、工具调用以及逐步执行轨迹发送到兼容的监控平台，用于分析性能或调查异常行为。配置可以集中下发，不需要每位开发者单独设置；提示词和模型响应正文默认不会被导出，是否捕获内容需要另外配置。这个变化对应 Coding Agent 落地后的一个现实问题：当 Agent 不再只是补全代码，而是连续调用工具、修改文件甚至执行远程任务，传统应用日志已经很难解释它“为什么这样做”。把 Agent trace 纳入 OTel，意味着 AI 开发工具开始补齐生产系统早已具备的审计和可观测性层。",
+    "source_url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app/",
+    "estimated_read_minutes": 2
+  }
+]
